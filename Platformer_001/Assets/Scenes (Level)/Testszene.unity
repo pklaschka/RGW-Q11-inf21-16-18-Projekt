@@ -312,9 +312,9 @@ Light:
   m_GameObject: {fileID: 1143317390}
   m_Enabled: 1
   serializedVersion: 7
-  m_Type: 2
+  m_Type: 1
   m_Color: {r: 1, g: 0.9815416, b: 0.9044118, a: 1}
-  m_Intensity: 3.54
+  m_Intensity: 0.32
   m_Range: 14.97
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -335,7 +335,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.06
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &1143317392
