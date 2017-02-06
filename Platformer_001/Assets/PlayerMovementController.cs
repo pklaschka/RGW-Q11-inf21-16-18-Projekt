@@ -15,10 +15,13 @@ public class PlayerMovementController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.D)) {
-			rb.velocity = new Vector2 (speed, 0f);
+			rb.velocity = new Vector2 (speed, rb.velocity.y);
 		}
 		if (Input.GetKey(KeyCode.A)) {
-			rb.velocity = new Vector2 (-speed, 0f);
+			rb.velocity = new Vector2 (-speed, rb.velocity.y);
+		}
+		if (Input.GetKeyDown(KeyCode.W)) {
+			rb.AddForce(new Vector2(0,5f), ForceMode2D.Impulse);
 		}
 	}
 }
