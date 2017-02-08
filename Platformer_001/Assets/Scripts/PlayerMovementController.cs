@@ -28,7 +28,13 @@ public class PlayerMovementController : MonoBehaviour {
 
     public void Bewegen(Richtung richtung) {
         rb.velocity = new Vector2((int)richtung * speed, rb.velocity.y);
-        transform.eulerAngles = new Vector3(0, richtung == Richtung.LINKS ? 180.0f : 0.0f, 0);
+
+        // Bewegen wir uns nach links, dann wird der Spieler um 180° rotiert, wenn nicht, dann nicht.
+        // Dadurch zeigt der Spieler nach links, falls es nötig ist.
+        // x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
+        float yDrehung = richtung == Richtung.LINKS ? 180.0f : 0.0f;
+
+        transform.eulerAngles = new Vector3(0, yDrehung, 0);
     }
 	
 	void Update() {
