@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4045548060568958}
   - component: {fileID: 212580971613745634}
-  - component: {fileID: 61230421212266744}
+  - component: {fileID: 68311088399233596}
   m_Layer: 0
   m_Name: Pablo-Testtile_1
   m_TagString: Untagged
@@ -36,13 +36,13 @@ Transform:
   m_GameObject: {fileID: 1173671939647812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.38, y: -6.33, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61230421212266744
-BoxCollider2D:
+--- !u!68 &68311088399233596
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -52,9 +52,13 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 47c1bdd6919415b4db67b378a9adaa6b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Offset: {x: -0.5, y: -0.5}
+  m_Points:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 1, y: 1}
+  - {x: 0, y: 1}
+  - {x: 0, y: 0}
 --- !u!212 &212580971613745634
 SpriteRenderer:
   m_ObjectHideFlags: 1

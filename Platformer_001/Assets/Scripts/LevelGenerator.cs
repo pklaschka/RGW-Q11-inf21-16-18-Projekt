@@ -54,8 +54,8 @@ public class LevelGenerator : MonoBehaviour {
 			print("Found color: " + c);
 			if (c.r == ctp.color.r && c.g == ctp.color.g && c.b == ctp.color.b) {
 				print("Instantiating Object: " + ctp.prefab);
-				GameObject go = (GameObject)Instantiate(ctp.prefab, new Vector2(x, y), Quaternion.identity);
-				go.transform.SetParent(transform);
+				GameObject go = (GameObject)Instantiate(ctp.prefab, new Vector2(x, y), Quaternion.identity, transform);
+				go.transform.localScale *= size;
 
 				return;
 			}
