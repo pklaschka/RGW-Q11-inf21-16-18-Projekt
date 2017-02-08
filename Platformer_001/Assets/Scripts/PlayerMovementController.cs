@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour {
 	public float speed;
-    public float jumpImpulse = 5.0f;
+	public float jumpForce = 5.0f;
 
     private bool doubleJump;
 	private Rigidbody2D rb;
@@ -23,7 +23,7 @@ public class PlayerMovementController : MonoBehaviour {
     }
 
     public void Springen() {
-        rb.AddForce(new Vector2(0, jumpImpulse), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
     }
 
     public void Bewegen(Richtung richtung) {
@@ -42,7 +42,7 @@ public class PlayerMovementController : MonoBehaviour {
             Springen();
             doubleJump = amBoden;
         }
-
+        
 		anim.SetFloat("speed", rb.velocity.magnitude);
 	}
 }
