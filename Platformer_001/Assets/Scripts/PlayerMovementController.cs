@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour {
 	public float speed;
 
+    private bool doublejump;
 	private Rigidbody2D rb;
 	private Animator anim;
 	private BoxCollider2D col;
@@ -14,7 +15,8 @@ public class PlayerMovementController : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		col = GetComponent<BoxCollider2D> ();
-	}
+        doublejump = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,13 +28,24 @@ public class PlayerMovementController : MonoBehaviour {
 			rb.velocity = new Vector2 (-speed, rb.velocity.y);
 			transform.eulerAngles = new Vector3 (0, 180f, 0);
 		}
-		if (Input.GetKeyDown(KeyCode.W)) {
-			rb.AddForce(new Vector2(0,5f), ForceMode2D.Impulse);
-		}
+		
 		if (col.IsTouchingLayers ()) {
 			anim.SetBool ("jump", false);
-		} else {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse);
+                doublejump = true;
+            }
+        } else {
 			anim.SetBool ("jump", true);
+            if(doublejump)
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse);
+                    doublejump = false;
+                }
+            }
 		}
 
 		// spped parameter setzen
