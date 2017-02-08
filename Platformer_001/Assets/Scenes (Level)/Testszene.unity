@@ -288,6 +288,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 34
       objectReference: {fileID: 0}
+    - target: {fileID: 114102300147083456, guid: 16d9d4c47b9a281409a2ec2745214479,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16d9d4c47b9a281409a2ec2745214479, type: 2}
   m_IsPrefabParent: 0
@@ -424,6 +429,12 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &937741831 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114659743662531714, guid: 16d9d4c47b9a281409a2ec2745214479,
+    type: 2}
+  m_PrefabInternal: {fileID: 520832141}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1143317390
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,11 +867,36 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1911415940 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1608628966676326, guid: 16d9d4c47b9a281409a2ec2745214479,
+    type: 2}
+  m_PrefabInternal: {fileID: 520832141}
 --- !u!224 &1911415941 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224827634028832918, guid: 16d9d4c47b9a281409a2ec2745214479,
     type: 2}
   m_PrefabInternal: {fileID: 520832141}
+--- !u!114 &1911415942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1911415940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3ab3fd98f2b914082a1460bab2c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angezeigteHP: 100
+  hpText: {fileID: 1935047160}
+  herzInnen: {fileID: 937741831}
+--- !u!114 &1935047160 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114102300147083456, guid: 16d9d4c47b9a281409a2ec2745214479,
+    type: 2}
+  m_PrefabInternal: {fileID: 520832141}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &2023840629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1146,7 @@ GameObject:
   - component: {fileID: 2123089780}
   - component: {fileID: 2123089779}
   - component: {fileID: 2123089781}
+  - component: {fileID: 2123089782}
   m_Layer: 0
   m_Name: Spieler
   m_TagString: Untagged
@@ -1230,6 +1267,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+--- !u!114 &2123089782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2123089775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833aeb026f2d4e041aa8bfd7fa284160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  schadenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  todEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  hpAnzeige: {fileID: 1911415942}
+  hp: 100
+  maxHP: 100
 --- !u!1 &2139902869
 GameObject:
   m_ObjectHideFlags: 0
