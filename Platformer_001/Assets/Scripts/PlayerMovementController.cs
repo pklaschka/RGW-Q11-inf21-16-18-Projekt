@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour {
 	public float speed;
+	public float jumpForce;
 
     private bool doublejump;
 	private Rigidbody2D rb;
@@ -33,7 +34,7 @@ public class PlayerMovementController : MonoBehaviour {
 			anim.SetBool ("jump", false);
             if (Input.GetKeyDown(KeyCode.W))
             {
-                rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse);
+				rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 doublejump = true;
             }
         } else {
@@ -42,7 +43,7 @@ public class PlayerMovementController : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse);
+					rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                     doublejump = false;
                 }
             }
