@@ -4,52 +4,51 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour {
 	public float speed;
-	public float jumpForce;
+	public float jumpForce = 5.0f;
 
-    private bool doublejump;
+    private bool doubleJump;
 	private Rigidbody2D rb;
 	private Animator anim;
 	private BoxCollider2D col;
 
-	// Use this for initialization
-	void Start () {
-		rb = GetComponent<Rigidbody2D> ();
-		anim = GetComponent<Animator> ();
-		col = GetComponent<BoxCollider2D> ();
-        doublejump = false;
+    public enum Richtung {
+        LINKS = -1, RECHTS = 1
+    };
+
+	void Start() {
+		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
+		col = GetComponent<BoxCollider2D>();
+        doubleJump = false;
+    }
+
+    public void Springen() {
+        rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+    }
+
+    public void Bewegen(Richtung richtung) {
+        rb.velocity = new Vector2((int)richtung * speed, rb.velocity.y);
+
+        // Bewegen wir uns nach links, dann wird der Spieler um 180° rotiert, wenn nicht, dann nicht.
+        // Dadurch zeigt der Spieler nach links, falls es nötig ist.
+        // x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
+        float yDrehung = richtung == Richtung.LINKS ? 180.0f : 0.0f;
+
+        transform.eulerAngles = new Vector3(0, yDrehung, 0);
     }
 	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKey(KeyCode.D)) {
-			rb.velocity = new Vector2 (speed, rb.velocity.y);
-			transform.eulerAngles = new Vector3 (0, 0, 0);
-		}
-		if (Input.GetKey(KeyCode.A)) {
-			rb.velocity = new Vector2 (-speed, rb.velocity.y);
-			transform.eulerAngles = new Vector3 (0, 180f, 0);
-		}
-		
-		if (col.IsTouchingLayers ()) {
-			anim.SetBool ("jump", false);
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-				rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                doublejump = true;
-            }
-        } else {
-			anim.SetBool ("jump", true);
-            if(doublejump)
-            {
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-					rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                    doublejump = false;
-                }
-            }
-		}
+	void Update() {
+		if (Input.GetKey(KeyCode.D)) Bewegen(Richtung.RECHTS);
+        if (Input.GetKey(KeyCode.A)) Bewegen(Richtung.LINKS);
 
-		// spped parameter setzen
+        bool amBoden = col.IsTouchingLayers();
+        anim.SetBool("jump", !amBoden);
+
+        if (Input.GetKeyDown(KeyCode.W) && (amBoden || doubleJump)) {
+            Springen();
+            doubleJump = amBoden;
+        }
+        
 		anim.SetFloat("speed", rb.velocity.magnitude);
 	}
 }
