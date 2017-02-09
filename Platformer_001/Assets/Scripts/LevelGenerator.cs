@@ -1,28 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-[System.Serializable]
-public class ColorToPrefab {
-	public Color32 color;
-	public GameObject prefab;
+[Serializable]
+public class ColourToSprite {
+    public Color32 colour;
+    public Sprite sprite;
 }
 
 public class LevelGenerator : MonoBehaviour {
-
 	public Texture2D levelMap;
+    public ColourToSprite[] colourSpriteMap;
+    public GameObject tilePrefab;
+    public int size;
 
-	public ColorToPrefab[] colorToPrefab;
-
-	public int size;
-
-	// Use this for initialization
-	void Start () {
+	void Start() {
 		LoadMap();
 	}
 
 	void EmptyMap() {
-		while(transform.childCount > 0) {
+		while (transform.childCount > 0) {
 			Transform c = transform.GetChild(0);
 			c.SetParent(null);
 			Destroy(c.gameObject);
@@ -39,8 +35,7 @@ public class LevelGenerator : MonoBehaviour {
 
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				print("Trying to spawn tile at: " + x + " | " + y);
-				SpawnTileAt(allPixels[x + (y * width)], x*size, y*size);
+				SpawnTileAt(allPixels[x + y * width], x * size, y * size);
 			}
 		}
 	}
@@ -50,12 +45,16 @@ public class LevelGenerator : MonoBehaviour {
 			return;
 		}
 
-		foreach (ColorToPrefab ctp in colorToPrefab) {
-			print("Found color: " + c);
-			if (c.r == ctp.color.r && c.g == ctp.color.g && c.b == ctp.color.b) {
-				print("Instantiating Object: " + ctp.prefab);
-				GameObject go = (GameObject)Instantiate(ctp.prefab, new Vector2(x, y), Quaternion.identity, transform);
-				go.transform.localScale *= size;
+		foreach (ColourToSprite ctp in colourSpriteMap) {
+			if (c.r == ctp.colour.r && c.g == ctp.colour.g && c.b == ctp.colour.b) {
+				var tileObject = Instantiate(tilePrefab, new Vector2(x, y), Quaternion.identity, transform);
+				tileObject.transform.localScale *= size;
+
+                var sr = tileObject.GetComponent<SpriteRenderer>();
+
+                if (sr != null) {
+                    sr.sprite = ctp.sprite;
+                }
 
 				return;
 			}
