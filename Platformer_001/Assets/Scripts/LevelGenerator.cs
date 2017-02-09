@@ -48,8 +48,6 @@ public class LevelGenerator : MonoBehaviour {
 		foreach (ColourToSprite ctp in colourSpriteMap) {
 			if (c.r == ctp.colour.r && c.g == ctp.colour.g && c.b == ctp.colour.b) {
 				var tileObject = Instantiate(tilePrefab, new Vector2(x, y), Quaternion.identity, transform);
-				tileObject.transform.localScale *= size;
-
                 var sr = tileObject.GetComponent<SpriteRenderer>();
 
                 if (sr != null) {

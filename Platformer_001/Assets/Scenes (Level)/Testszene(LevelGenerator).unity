@@ -128,7 +128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4115430709870870, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
         type: 2}
@@ -326,7 +326,7 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 2
     sprite: {fileID: 21300004, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
-  tilePrefab: {fileID: 1945308048332954, guid: 88633495766184f45b26d9bf09b964d4, type: 2}
+  tilePrefab: {fileID: 1792102471104630, guid: d27c1267ff1c3c14f8d764227371df6c, type: 2}
   size: 2
 --- !u!4 &993892591
 Transform:
@@ -427,7 +427,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1454337803
 MonoBehaviour:
