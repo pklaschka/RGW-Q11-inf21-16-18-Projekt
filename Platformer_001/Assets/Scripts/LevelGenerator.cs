@@ -1,19 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class ColourToSprite {
-    public Color32 colour;
-    public Sprite sprite;
-}
-
 public class LevelGenerator : MonoBehaviour {
-	public Texture2D levelMap;
+    [Serializable]
+    public class ColourToSprite {
+        public Color32 colour;
+        public Sprite sprite;
+    }
+
+    public Texture2D levelMap;
     public ColourToSprite[] colourSpriteMap;
     public GameObject tilePrefab;
-    public int size;
+    public int tileSize;
+
+    private readonly Dictionary<int, Sprite> colourSpriteDict = new Dictionary<int, Sprite>();
+
+    private static int HashColour24(Color32 c) {
+        return c.r | (c.g << 8) | (c.b << 16);
+    }
 
 	void Start() {
+        foreach (var cts in colourSpriteMap) {
+            colourSpriteDict[HashColour24(cts.colour)] = cts.sprite;
+        }
+
 		LoadMap();
 	}
 
@@ -35,27 +46,27 @@ public class LevelGenerator : MonoBehaviour {
 
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				SpawnTileAt(allPixels[x + y * width], x * size, y * size);
+				SpawnTileAt(allPixels[x + y * width], x * tileSize, y * tileSize);
 			}
 		}
 	}
 
-	void SpawnTileAt (Color32 c, int x, int y) {
+	void SpawnTileAt(Color32 c, int x, int y) {
 		if (c.a < 255) {
 			return;
 		}
 
-		foreach (ColourToSprite ctp in colourSpriteMap) {
-			if (c.r == ctp.colour.r && c.g == ctp.colour.g && c.b == ctp.colour.b) {
-				var tileObject = Instantiate(tilePrefab, new Vector2(x, y), Quaternion.identity, transform);
-                var sr = tileObject.GetComponent<SpriteRenderer>();
+        int rgba = HashColour24(c);
 
-                if (sr != null) {
-                    sr.sprite = ctp.sprite;
-                }
+        var tileSprite = colourSpriteDict[rgba];
+		var tileObject = Instantiate(tilePrefab, new Vector2(x, y), Quaternion.identity, transform);
 
-				return;
-			}
-		}
+        var sr = tileObject.GetComponent<SpriteRenderer>();
+
+        if (sr != null) {
+            sr.sprite = tileSprite;
+        }
+
+		return;
 	}
 }

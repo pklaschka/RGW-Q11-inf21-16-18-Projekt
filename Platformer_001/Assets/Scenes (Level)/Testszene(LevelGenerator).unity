@@ -327,7 +327,7 @@ MonoBehaviour:
       rgba: 2
     sprite: {fileID: 21300004, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
   tilePrefab: {fileID: 1792102471104630, guid: d27c1267ff1c3c14f8d764227371df6c, type: 2}
-  size: 2
+  tileSize: 2
 --- !u!4 &993892591
 Transform:
   m_ObjectHideFlags: 0
