@@ -41,7 +41,7 @@ public class PlayerMovementController : MonoBehaviour {
 		if (Input.GetKey(KeyCode.D)) Bewegen(Richtung.RECHTS);
         if (Input.GetKey(KeyCode.A)) Bewegen(Richtung.LINKS);
 
-        bool amBoden = col.IsTouchingLayers();
+        bool amBoden = rb.velocity.y < 0.001f && rb.velocity.y > -0.001f;
         anim.SetBool("jump", !amBoden);
 
         if (Input.GetKeyDown(KeyCode.W) && (amBoden || doubleJump)) {
