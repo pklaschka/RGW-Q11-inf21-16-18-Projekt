@@ -9,7 +9,7 @@ public class PlayerMovementController : MonoBehaviour {
     private bool doubleJump;
 	private Rigidbody2D rb;
 	private Animator anim;
-	private BoxCollider2D col;
+	//private BoxCollider2D col;
 
     public enum Richtung {
         LINKS = -1, RECHTS = 1
@@ -18,7 +18,7 @@ public class PlayerMovementController : MonoBehaviour {
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
-		col = GetComponent<BoxCollider2D>();
+		//col = GetComponent<BoxCollider2D>();
         doubleJump = false;
     }
 
@@ -29,12 +29,21 @@ public class PlayerMovementController : MonoBehaviour {
     public void Bewegen(Richtung richtung) {
         rb.velocity = new Vector2((int)richtung * speed, rb.velocity.y);
 
+		/*
+		 * Für's erste lösen wir den Part über die Skalierung, da ich mich mit 'Shader-Coding' nicht genug auskenne - Pablo
+		 * 
         // Bewegen wir uns nach links, dann wird der Spieler um 180° rotiert, wenn nicht, dann nicht.
         // Dadurch zeigt der Spieler nach links, falls es nötig ist.
         // x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
         float yDrehung = richtung == Richtung.LINKS ? 180.0f : 0.0f;
 
         transform.eulerAngles = new Vector3(0, yDrehung, 0);
+        */
+
+
+		// x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
+		var xScale = richtung == Richtung.LINKS ? -1f : 1f;
+		transform.localScale = new Vector3(xScale, 1, 1);
     }
 	
 	void Update() {
