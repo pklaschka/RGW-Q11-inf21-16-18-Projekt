@@ -18,12 +18,6 @@ public class ItemController : MonoBehaviour {
     private float angriffCooldownTimer = 0;
     private bool darfAngreifen = true;
 
-    [Serializable]
-    public struct ItemAnimation {
-        public string name;
-        public int index;
-    };
-
     void Start() {
         anim = GetComponent<Animator>();
 
