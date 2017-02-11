@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +7,43 @@ public class ItemController : MonoBehaviour {
     public GameObject anfangsItem;
     private GameObject itemInHand;
 
+    private Animator anim;
+
+    // Anzahl an Sekunden nach einem Angriff, in denen kein neuer Angriff
+    // ausgeführt werden darf.
+    // Dies ist dazu da, dass man nicht einfach den Angriff-Knopf wie verrückt
+    // drücken kann.
+    public float angriffCooldown = 0.8f;
+
+    private float angriffCooldownTimer = 0;
+    private bool darfAngreifen = true;
+
+    [Serializable]
+    public struct ItemAnimation {
+        public string name;
+        public int index;
+    };
+
     void Start() {
+        anim = GetComponent<Animator>();
+
         if (anfangsItem != null) {
             Tragen(anfangsItem);
+        }
+    }
+
+    void Update() {
+        if (darfAngreifen && Input.GetButtonDown("Attack")) {
+            Angreifen();
+        }
+
+        if (!darfAngreifen) {
+            angriffCooldownTimer += Time.deltaTime;
+
+            if (angriffCooldownTimer >= angriffCooldown) {
+                darfAngreifen = true;
+                angriffCooldownTimer = 0.0f;
+            }
         }
     }
 
@@ -38,6 +73,16 @@ public class ItemController : MonoBehaviour {
         }
 
         itemInHand = Instantiate(prefab, itemTransform, false);
+        itemInHand.name = prefab.name;
         return true;
+    }
+
+    public void Angreifen() {
+        if (itemInHand == null) return;
+        
+        anim.SetTrigger(string.Format("attack-{0}", itemInHand.name));
+
+        darfAngreifen = false;
+        angriffCooldownTimer = 0.0f;
     }
 }
