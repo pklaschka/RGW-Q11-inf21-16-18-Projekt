@@ -16,9 +16,13 @@ public class LevelGenerator : MonoBehaviour {
         public GameObject customPrefab;
     };
 
-    public Texture2D levelMap;
+	[Header("Essentielle Parameter")]
+	public Texture2D levelMap;
+	[Header("Zuordnungen")]
     public ColourToSprite[] colourSpriteMap;
     public GameObject defaultTilePrefab;
+	[Header("Sonstige Parameter")]
+	[Range (1, 20)]
     public int tileSize;
 
     private readonly Dictionary<int, TileDef> colourSpriteDict = new Dictionary<int, TileDef>();
