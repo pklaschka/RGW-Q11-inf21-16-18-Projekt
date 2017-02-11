@@ -9,7 +9,8 @@ public class PlayerMovementController : MonoBehaviour {
     private bool doubleJump;
 	private Rigidbody2D rb;
 	private Animator anim;
-	//private BoxCollider2D col;
+    //private BoxCollider2D col;
+    private Richtung richtung;
 
     public enum Richtung {
         LINKS = -1, RECHTS = 1
@@ -26,12 +27,30 @@ public class PlayerMovementController : MonoBehaviour {
         rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
     }
 
-    public void Bewegen(Richtung richtung) {
-        rb.velocity = new Vector2((int)richtung * speed, rb.velocity.y);
+    public void Bewegen(float richtung) {
+        // Dieses if verhindert, dass wenn die richtung 0 ist, sich der Spieler dreht.
+        if (richtung < 0.001f && richtung > -0.001f) return;
 
-		/*
-		 * Für's erste lösen wir den Part über die Skalierung, da ich mich mit 'Shader-Coding' nicht genug auskenne - Pablo
-		 * 
+        this.richtung = richtung < 0.0f ? Richtung.LINKS : Richtung.RECHTS;
+        rb.velocity = new Vector2(richtung * speed, rb.velocity.y);
+    }
+	
+	void Update() {
+        Bewegen(Input.GetAxis("Horizontal"));
+
+        bool amBoden = rb.velocity.y < 0.001f && rb.velocity.y > -0.001f;
+        anim.SetBool("jump", !amBoden);
+
+        if (Input.GetButtonDown("Jump") && (amBoden || doubleJump)) {
+            Springen();
+            doubleJump = amBoden;
+        }
+        
+		anim.SetFloat("speed", rb.velocity.magnitude);
+
+        /*
+         * Für's erste lösen wir den Part über die Skalierung, da ich mich mit 'Shader-Coding' nicht genug auskenne - Pablo
+         * 
         // Bewegen wir uns nach links, dann wird der Spieler um 180° rotiert, wenn nicht, dann nicht.
         // Dadurch zeigt der Spieler nach links, falls es nötig ist.
         // x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
@@ -39,25 +58,8 @@ public class PlayerMovementController : MonoBehaviour {
 
         transform.eulerAngles = new Vector3(0, yDrehung, 0);
         */
-
-
-		// x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
-		var xScale = richtung == Richtung.LINKS ? -1f : 1f;
-		transform.localScale = new Vector3(xScale, 1, 1);
+        // x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
+        var xScale = richtung == Richtung.LINKS ? -1f : 1f;
+        transform.localScale = new Vector3(xScale, 1, 1);
     }
-	
-	void Update() {
-		if (Input.GetKey(KeyCode.D)) Bewegen(Richtung.RECHTS);
-        if (Input.GetKey(KeyCode.A)) Bewegen(Richtung.LINKS);
-
-        bool amBoden = rb.velocity.y < 0.001f && rb.velocity.y > -0.001f;
-        anim.SetBool("jump", !amBoden);
-
-        if (Input.GetKeyDown(KeyCode.W) && (amBoden || doubleJump)) {
-            Springen();
-            doubleJump = amBoden;
-        }
-        
-		anim.SetFloat("speed", rb.velocity.magnitude);
-	}
 }
