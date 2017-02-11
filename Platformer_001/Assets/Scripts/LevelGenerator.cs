@@ -1,32 +1,51 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ColorToPrefab {
-	public Color32 color;
-	public GameObject prefab;
-}
-
 public class LevelGenerator : MonoBehaviour {
+    [Serializable]
+    public struct ColourToSprite {
+        public Color32 colour;
+        public Sprite sprite;
+        public GameObject customPrefab;
+    }
 
-	public Texture2D levelMap;
+    [Serializable]
+    public struct TileDef {
+        public Sprite sprite;
+        public GameObject customPrefab;
+    };
 
-	public ColorToPrefab[] colorToPrefab;
+    public Texture2D levelMap;
+    public ColourToSprite[] colourSpriteMap;
+    public GameObject defaultTilePrefab;
+    public int tileSize;
 
-	public int size;
+    private readonly Dictionary<int, TileDef> colourSpriteDict = new Dictionary<int, TileDef>();
 
-	// Use this for initialization
-	void Start () {
+    private static int HashColour24(Color32 c) {
+        return c.r | (c.g << 8) | (c.b << 16);
+    }
+
+	void Start() {
+        foreach (var cts in colourSpriteMap) {
+            var def = new TileDef();
+            def.sprite = cts.sprite;
+            def.customPrefab = cts.customPrefab;
+            colourSpriteDict[HashColour24(cts.colour)] = def;
+        }
+
+        colourSpriteMap = null;
+
 		LoadMap();
 	}
 
 	void EmptyMap() {
-		while(transform.childCount > 0) {
-			Transform c = transform.GetChild(0);
-			c.SetParent(null);
-			Destroy(c.gameObject);
-		}
+        while (transform.childCount > 0) {
+            var c = transform.GetChild(0);
+            c.SetParent(null);
+            Destroy(c.gameObject);
+        }
 	}
 
 	void LoadMap(int levelIndex = 0) {
@@ -39,26 +58,28 @@ public class LevelGenerator : MonoBehaviour {
 
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				print("Trying to spawn tile at: " + x + " | " + y);
-				SpawnTileAt(allPixels[x + (y * width)], x*size, y*size);
+				SpawnTileAt(allPixels[x + y * width], x * tileSize, y * tileSize);
 			}
 		}
 	}
 
-	void SpawnTileAt (Color32 c, int x, int y) {
+	void SpawnTileAt(Color32 c, int x, int y) {
 		if (c.a < 255) {
 			return;
 		}
 
-		foreach (ColorToPrefab ctp in colorToPrefab) {
-			print("Found color: " + c);
-			if (c.r == ctp.color.r && c.g == ctp.color.g && c.b == ctp.color.b) {
-				print("Instantiating Object: " + ctp.prefab);
-				GameObject go = (GameObject)Instantiate(ctp.prefab, new Vector2(x, y), Quaternion.identity, transform);
-				go.transform.localScale *= size;
+        int rgba = HashColour24(c);
 
-				return;
-			}
-		}
+        var tileDef = colourSpriteDict[rgba];
+        var tilePrefab = tileDef.customPrefab != null ? tileDef.customPrefab : defaultTilePrefab;
+		var tileObject = Instantiate(tilePrefab, new Vector2(x, y), Quaternion.identity, transform);
+
+        var sr = tileObject.GetComponent<SpriteRenderer>();
+
+        if (sr != null) {
+            sr.sprite = tileDef.sprite;
+        }
+
+		return;
 	}
 }

@@ -128,7 +128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4115430709870870, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
         type: 2}
@@ -313,20 +313,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMap: {fileID: 2800000, guid: 27164c55f0dd86d48ae12389eb1d4ad3, type: 3}
-  colorToPrefab:
-  - color:
+  colourSpriteMap:
+  - colour:
       serializedVersion: 2
       rgba: 0
-    prefab: {fileID: 1792102471104630, guid: 49da217c15f684844a75172e32cf5274, type: 2}
-  - color:
+    sprite: {fileID: 21300000, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
+    customPrefab: {fileID: 0}
+  - colour:
       serializedVersion: 2
       rgba: 1
-    prefab: {fileID: 1173671939647812, guid: 123ba4c672b75884fb67ee9ab60a6d95, type: 2}
-  - color:
+    sprite: {fileID: 21300002, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
+    customPrefab: {fileID: 0}
+  - colour:
       serializedVersion: 2
       rgba: 2
-    prefab: {fileID: 1762351955956994, guid: f773d31badc14854483d0ce9ffc9a630, type: 2}
-  size: 2
+    sprite: {fileID: 21300004, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
+    customPrefab: {fileID: 0}
+  defaultTilePrefab: {fileID: 1792102471104630, guid: d27c1267ff1c3c14f8d764227371df6c,
+    type: 2}
+  tileSize: 2
 --- !u!4 &993892591
 Transform:
   m_ObjectHideFlags: 0
@@ -426,7 +431,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1454337803
 MonoBehaviour:
