@@ -33,10 +33,6 @@ public class ItemController : MonoBehaviour {
     }
 
     void Update() {
-        if (darfAngreifen && Input.GetButtonDown("Attack")) {
-            Angreifen();
-        }
-
         if (!darfAngreifen) {
             angriffCooldownTimer += Time.deltaTime;
 
@@ -45,8 +41,13 @@ public class ItemController : MonoBehaviour {
                 angriffCooldownTimer = 0.0f;
             }
         }
+
+        if (darfAngreifen && Input.GetButtonDown("Attack")) {
+            Angreifen();
+        }
     }
 
+    /** Findet heraus, wo das Item gespawnt werden muss, damit es in der Hand erscheint. */
     private Transform ItemStelleFinden(GameObject prefab) {
         string punktName = string.Format("{0}-Punkt", prefab.name);
 
