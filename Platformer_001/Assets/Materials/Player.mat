@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Player
   m_Shader: {fileID: 4800000, guid: ad34fc70fa28ebe4e9a1bb897be9e814, type: 3}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: PIXELSNAP_ON _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -72,7 +72,7 @@ Material:
     m_Floats:
     - first:
         name: PixelSnap
-      second: 0
+      second: 1
     - first:
         name: _BumpScale
       second: 1
