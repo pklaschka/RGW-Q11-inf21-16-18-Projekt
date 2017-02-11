@@ -271,6 +271,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212122532486929758, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9063de50beae83f42a8f70794a5fca91, type: 2}
     - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
         type: 2}
       propertyPath: hpAnzeige
@@ -371,7 +376,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5.15
+  m_Intensity: 1.09
   m_Range: 51.6
   m_SpotAngle: 30
   m_CookieSize: 10
