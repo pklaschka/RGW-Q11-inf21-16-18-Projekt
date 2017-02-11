@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HUDHPAnzeige : MonoBehaviour {
+	[Range(0, 100)]
     public int angezeigteHP = 100;
 
     public Text hpText;

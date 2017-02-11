@@ -28,12 +28,17 @@ public class LevelGenerator : MonoBehaviour {
         public LevelObjectType type;
         public GameObject prefab;
     };
-
+    
+    [Header("Essentielle Parameter")]
     public Texture2D levelMap;
-    public ColourToObject[] colourObjectMap;
-    public int tileSize;
 
+    [Header("Zuordnungen")]
+    public ColourToObject[] colourObjectMap;
     public PrefabDefault[] defaultPrefabs;
+
+    [Header("Sonstige Parameter")]
+    [Range(1, 20)]
+    public int tileSize;
 
     private readonly Dictionary<int, ObjectDef> idTileDict = new Dictionary<int, ObjectDef>();
     private readonly Dictionary<int, ObjectDef> idItemDict = new Dictionary<int, ObjectDef>();
