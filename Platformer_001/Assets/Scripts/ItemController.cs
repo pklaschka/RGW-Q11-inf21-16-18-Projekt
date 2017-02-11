@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour {
     public GameObject anfangsItem;
-    private GameObject itemInHand;
+    public GameObject itemInHand;
 
     private Animator anim;
 
@@ -39,6 +39,14 @@ public class ItemController : MonoBehaviour {
         if (darfAngreifen && Input.GetButtonDown("Attack")) {
             Angreifen();
         }
+    }
+
+    public GameObject ItemInHandGeben() {
+        return itemInHand;
+    }
+
+    public bool KannGeradeAngreifen() {
+        return darfAngreifen;
     }
 
     /** Findet heraus, wo das Item gespawnt werden muss, damit es in der Hand erscheint. */
