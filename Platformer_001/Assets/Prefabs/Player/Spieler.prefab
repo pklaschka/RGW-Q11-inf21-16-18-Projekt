@@ -300,6 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833aeb026f2d4e041aa8bfd7fa284160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
+  maxHP: 100
   schadenEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -311,8 +313,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   hpAnzeige: {fileID: 0}
-  hp: 100
-  maxHP: 100
 --- !u!212 &212006324111992654
 SpriteRenderer:
   m_ObjectHideFlags: 1

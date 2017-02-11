@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour {
-	public float speed;
-	public float jumpForce = 5.0f;
+	[Range(5.0f, 15.0f)]	
+	public float speed = 7.0f;
+	[Range(5.0f, 15.0f)]
+	public float jumpForce = 7.0f;
 
     private bool doubleJump;
 	private Rigidbody2D rb;
