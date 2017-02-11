@@ -284,6 +284,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &849406640 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4163987690811616, guid: 1b2499aef91c52844b533d1587e0fa93,
+    type: 2}
+  m_PrefabInternal: {fileID: 849406639}
 --- !u!114 &937741831 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114659743662531714, guid: 16d9d4c47b9a281409a2ec2745214479,
@@ -575,6 +580,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1594122120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1594122121}
+  m_Layer: 0
+  m_Name: Schwert-Punkt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594122121
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594122120}
+  m_LocalRotation: {x: -0, y: -0, z: 0.52347714, w: -0.85203975}
+  m_LocalPosition: {x: 0.0569, y: -0.0206, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 849406640}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -63.132004}
 --- !u!1 &1911415940 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1608628966676326, guid: 16d9d4c47b9a281409a2ec2745214479,
