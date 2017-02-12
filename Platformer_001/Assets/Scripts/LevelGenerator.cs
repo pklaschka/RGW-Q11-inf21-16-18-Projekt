@@ -53,7 +53,7 @@ public class LevelGenerator : MonoBehaviour {
     }
 
 	void Start() {
-        foreach (var cts in colourObjectMap) {
+        foreach (ColourToObject cts in colourObjectMap) {
             var def = new ObjectDef();
             def.sprite = cts.sprite;
             def.type = idToType[cts.colour.r];
@@ -74,7 +74,7 @@ public class LevelGenerator : MonoBehaviour {
             
         }
 
-        foreach (var d in defaultPrefabs) {
+        foreach (PrefabDefault d in defaultPrefabs) {
             prefabDefaultDict[d.type] = d.prefab;
         }
 
