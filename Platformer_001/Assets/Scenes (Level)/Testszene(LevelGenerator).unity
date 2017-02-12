@@ -271,16 +271,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212122532486929758, guid: 1b2499aef91c52844b533d1587e0fa93,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9063de50beae83f42a8f70794a5fca91, type: 2}
     - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
         type: 2}
       propertyPath: hpAnzeige
       value: 
       objectReference: {fileID: 1911415942}
+    - target: {fileID: 212122532486929758, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9063de50beae83f42a8f70794a5fca91, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
   m_IsPrefabParent: 0
@@ -318,25 +318,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMap: {fileID: 2800000, guid: 27164c55f0dd86d48ae12389eb1d4ad3, type: 3}
-  colourSpriteMap:
+  colourObjectMap:
   - colour:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4278194176
     sprite: {fileID: 21300000, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
-    customPrefab: {fileID: 0}
+    prefab: {fileID: 0}
   - colour:
       serializedVersion: 2
-      rgba: 1
+      rgba: 4278198272
     sprite: {fileID: 21300002, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
-    customPrefab: {fileID: 0}
+    prefab: {fileID: 0}
   - colour:
       serializedVersion: 2
-      rgba: 2
+      rgba: 4278202368
     sprite: {fileID: 21300004, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
-    customPrefab: {fileID: 0}
-  defaultTilePrefab: {fileID: 1792102471104630, guid: d27c1267ff1c3c14f8d764227371df6c,
-    type: 2}
+    prefab: {fileID: 0}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278194431
+    sprite: {fileID: 21300000, guid: bbd4e2c1f68112f40a6e777b4e05c4d7, type: 3}
+    prefab: {fileID: 1091001140902924, guid: 28922d20731747949b66a7fa8c27aad8, type: 2}
   tileSize: 2
+  defaultPrefabs:
+  - type: 0
+    prefab: {fileID: 1792102471104630, guid: d27c1267ff1c3c14f8d764227371df6c, type: 2}
+  - type: 1
+    prefab: {fileID: 1967912431008734, guid: 4ab129c002285f14f9c17592c97c6f5e, type: 2}
 --- !u!4 &993892591
 Transform:
   m_ObjectHideFlags: 0
