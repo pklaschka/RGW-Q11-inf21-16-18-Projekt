@@ -13,16 +13,18 @@ public class SceneLoader : MonoBehaviour {
 	private bool sceneLoading;
 	AsyncOperation async;
 
+	void Start() {
+		sceneLoading = false;
+	}
+
 	public void LoadScene() {
 		if (NameSceneToLoad != null && BackgroundImage != null && ProgressBar != null) {
 			BackgroundImage.GetComponent<Image>().enabled = true;
 
 			Scene sceneToLoad = SceneManager.GetSceneByName(NameSceneToLoad);
 
-			if (sceneToLoad != null) {
-				sceneLoading = true;
-				StartCoroutine(StartSceneLoad());
-			}
+			sceneLoading = true;
+			StartCoroutine(StartSceneLoad());
 		} else {
 			Debug.LogError("Szene konnte nicht geladen werden, da ein nötiger Paramter nicht festgelegt wurde.");
 		}
@@ -36,11 +38,11 @@ public class SceneLoader : MonoBehaviour {
 	}
 
 	void Update() {
-		if (null == async)
-			return;
+		if (sceneLoading) {
+			ProgressBar.value = async.progress/0.9f;
+			if (async.progress >= 0.9f)
+				async.allowSceneActivation = true;
+		}
 
-		ProgressBar.value = async.progress/0.9f;
-		if (async.progress >= 0.9f)
-			async.allowSceneActivation = true;
 	}
 }
