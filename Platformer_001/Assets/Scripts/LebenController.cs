@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LebenController : MonoBehaviour {
-	public int leben = 1;
+	public int leben;
 
 	// Use this for initialization
 	void Start () {

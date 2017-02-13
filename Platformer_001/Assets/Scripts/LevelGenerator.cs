@@ -113,7 +113,7 @@ public class LevelGenerator : MonoBehaviour {
             break;
 
 		case 0x7F:
-			spawnPoint.Set(x * tileSize, y * tileSize);
+			spawnPoint.Set(x , y );
 			break;
         }
     }

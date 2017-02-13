@@ -35,6 +35,7 @@ public class SpielerHP : MonoBehaviour {
 		levelGen.NeuGenerieren ();
 		Vector3 newPos = new Vector3 (levelGen.spawnPoint.x, levelGen.spawnPoint.y, 0.0f);
 		transform.position = newPos;
+        hp = 100;
 	}
 
 	public void SchadenZufuegen(int schaden) {
@@ -49,7 +50,7 @@ public class SpielerHP : MonoBehaviour {
         if (hpAnzeige != null) hpAnzeige.HPSetzen(hp);
     }
 
-    public void Heilen(int hp) {
+    public void Heilen(int hp) {                        
         this.hp = hp + Math.Min(maxHP, hp);
     }
 
