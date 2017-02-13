@@ -40,6 +40,8 @@ public class LevelGenerator : MonoBehaviour {
     [Range(1, 20)]
     public int tileSize;
 
+	public Vector2 spawnPoint;
+
     private readonly Dictionary<int, ObjectDef> idTileDict = new Dictionary<int, ObjectDef>();
     private readonly Dictionary<int, ObjectDef> idItemDict = new Dictionary<int, ObjectDef>();
 
@@ -102,13 +104,17 @@ public class LevelGenerator : MonoBehaviour {
 
     private void DecodeMapInfo(Color32 pixel, int x, int y) {
         switch (pixel.r) {
-            case 0x00:
-                CommonDecode(idTileDict, pixel.g, (def, id) => SpawnObjectAt(def, id, x, y));
-                break;
+        case 0x00:
+            CommonDecode(idTileDict, pixel.g, (def, id) => SpawnObjectAt(def, id, x, y));
+            break;
 
-            case 0xFF:
-                CommonDecode(idItemDict, pixel.g, (def, id) => SpawnItemAt(def, id, x, y));
-                break;
+        case 0xFF:
+            CommonDecode(idItemDict, pixel.g, (def, id) => SpawnItemAt(def, id, x, y));
+            break;
+
+		case 0x7F:
+			spawnPoint.Set(x * tileSize, y * tileSize);
+			break;
         }
     }
 
@@ -156,4 +162,10 @@ public class LevelGenerator : MonoBehaviour {
 
         return obj;
     }
+
+	public void NeuGenerieren()
+	{
+		EmptyMap ();
+		LoadMap ();
+	}
 }
