@@ -36,4 +36,14 @@ public class SpielerHP : MonoBehaviour {
     public void Heilen(int hp) {
         this.hp = hp + Math.Min(maxHP, hp);
     }
+
+	public void Umbringen()
+	{
+		SchadenZufuegen (hp);
+		var leben = gameObject.GetComponent<LebenController> ();
+		if (leben != null) 
+		{
+			leben.Sterben ();
+		}
+	}
 }
