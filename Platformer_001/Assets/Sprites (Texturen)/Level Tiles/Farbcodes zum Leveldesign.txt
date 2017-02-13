@@ -17,6 +17,9 @@ Die Tile-Modi:
 - 0x00: Ein normaler Tile, AA gibt die Art des Tiles an.
 z.B: 0x003000 ist ein Erdblock, da Nummer 0x30 einen Erdblock angibt.
 
+- 0x7F: Der Spawnpunkt des Levels.
+z.B: 0x7F0000
+
 - 0xFF: Ein Item, AA gibt die Art des Items an. Zusätzlich kann durch BB
 extra Information über das Item angegeben werden. Dies hängt aber
 vom Item ab.

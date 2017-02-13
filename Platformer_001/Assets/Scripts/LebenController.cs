@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LebenController : MonoBehaviour {
 	public int leben = 1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -27,6 +28,4 @@ public class LebenController : MonoBehaviour {
 			GameOver ();
 		}
 	}
-
-
 }

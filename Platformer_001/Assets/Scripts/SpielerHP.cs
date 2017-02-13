@@ -21,11 +21,27 @@ public class SpielerHP : MonoBehaviour {
         if (hpAnzeige != null) hpAnzeige.HPSetzen(hp);
     }
 
+	private void OnSterben()
+	{
+		todEvent.Invoke(null);
+
+		var leben = gameObject.GetComponent<LebenController> ();
+		if (leben != null) 
+		{
+			leben.Sterben ();
+		}
+
+		var levelGen = FindObjectOfType<LevelGenerator> ();
+		levelGen.NeuGenerieren ();
+		Vector3 newPos = new Vector3 (levelGen.spawnPoint.x, levelGen.spawnPoint.y, 0.0f);
+		transform.position = newPos;
+	}
+
 	public void SchadenZufuegen(int schaden) {
         hp = Math.Max(hp - schaden, 0);
 
         if (hp <= 0) {
-            todEvent.Invoke(null);
+			OnSterben ();
         } else {
             schadenEvent.Invoke(null);
         }
@@ -40,10 +56,5 @@ public class SpielerHP : MonoBehaviour {
 	public void Umbringen()
 	{
 		SchadenZufuegen (hp);
-		var leben = gameObject.GetComponent<LebenController> ();
-		if (leben != null) 
-		{
-			leben.Sterben ();
-		}
 	}
 }

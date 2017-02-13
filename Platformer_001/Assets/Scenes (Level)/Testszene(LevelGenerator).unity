@@ -290,6 +290,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4115430709870870, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.75
@@ -332,6 +337,31 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9063de50beae83f42a8f70794a5fca91, type: 2}
+    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 993892590}
+    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NeuGenerieren
+      objectReference: {fileID: 0}
+    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
   m_IsPrefabParent: 0
@@ -396,6 +426,7 @@ MonoBehaviour:
   - type: 1
     prefab: {fileID: 1967912431008734, guid: 4ab129c002285f14f9c17592c97c6f5e, type: 2}
   tileSize: 2
+  spawnPoint: {x: 0, y: 0}
 --- !u!4 &993892591
 Transform:
   m_ObjectHideFlags: 0
