@@ -403,7 +403,7 @@ MonoBehaviour:
   - colour:
       serializedVersion: 2
       rgba: 4278194176
-    sprite: {fileID: 21300000, guid: 47faad796b8fa3145b2b4d6e04f5e960, type: 3}
+    sprite: {fileID: 21300000, guid: a8e0a2d7a3d37b9468188990345eb889, type: 3}
     prefab: {fileID: 0}
   - colour:
       serializedVersion: 2
