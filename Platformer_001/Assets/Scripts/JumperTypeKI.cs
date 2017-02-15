@@ -5,6 +5,7 @@ using UnityEngine;
 public class JumperTypeKI : MonoBehaviour {
 	public float speed;
 	public float jumpForce;
+	public float highJumpForce;
 	private Rigidbody2D slime;
 	private BoxCollider2D slimeCollider;
 	// Use this for initialization
@@ -18,12 +19,22 @@ public class JumperTypeKI : MonoBehaviour {
 		bool JumpReady = slime.velocity.y < 0.001f && slime.velocity.y > -0.001f && slime.velocity.x < 0.001f && slime.velocity.x > -0.001f;
 		if (JumpReady) {
 			float jumpOrder = Random.Range(0,4);
-			if(jumpOrder < 2f){
+			if(jumpOrder < 1f){
 				SpringenVorwaerts();
 			}
 			else{
-				SpringenRueckwaerts();
-			}
+				if (jumpOrder < 2f) {
+					SpringenRueckwaerts ();
+				} 
+				else {
+					if (jumpOrder < 3f) {
+						SpringenHochRueckwaerts ();
+					} 
+					else {
+						SpringenHochVorwaerts();
+						}
+					}
+				}
 		} 
 	}
 
@@ -33,5 +44,13 @@ public class JumperTypeKI : MonoBehaviour {
 
 	public void SpringenRueckwaerts(){
 		slime.AddForce(new Vector2(-speed, jumpForce), ForceMode2D.Impulse);
+	}
+
+	public void SpringenHochVorwaerts(){
+		slime.AddForce(new Vector2((speed/2), highJumpForce), ForceMode2D.Impulse);
+	}
+
+	public void SpringenHochRueckwaerts(){
+		slime.AddForce(new Vector2((-(speed/2)), highJumpForce), ForceMode2D.Impulse);
 	}
 }
