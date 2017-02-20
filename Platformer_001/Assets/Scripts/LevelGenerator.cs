@@ -133,6 +133,11 @@ public class LevelGenerator : MonoBehaviour {
 				DecodeMapInfo(c, x * tileSize, y * tileSize);
 			}
 		}
+
+		var player = FindObjectOfType<PlayerMovementController>();
+		if (player != null) {
+			player.gameObject.transform.position = new Vector3 (spawnPoint.x, spawnPoint.y, 0.0f);
+		}
 	}
 
 	private GameObject SpawnObjectAt(ObjectDef objDef, int id, int x, int y) {
