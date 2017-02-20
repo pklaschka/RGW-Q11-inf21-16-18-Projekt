@@ -81,6 +81,8 @@ public class ItemController : MonoBehaviour {
     }
 
     public void Angreifen() {
+		var pmc = GetComponent<PlayerMovementController>();
+		if (pmc != null && !pmc.IstAmBoden ()) return;
         if (itemInHand == null) return;
         
         anim.SetTrigger(string.Format("attack-{0}", itemInHand.name));
