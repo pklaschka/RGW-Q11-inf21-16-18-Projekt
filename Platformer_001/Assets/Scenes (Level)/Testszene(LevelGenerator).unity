@@ -290,11 +290,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
-        type: 2}
-      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4115430709870870, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.04
@@ -327,11 +322,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
-        type: 2}
-      propertyPath: hpAnzeige
-      value: 
-      objectReference: {fileID: 1911415942}
     - target: {fileID: 212122532486929758, guid: 1b2499aef91c52844b533d1587e0fa93,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -339,29 +329,15 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 9063de50beae83f42a8f70794a5fca91, type: 2}
     - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
         type: 2}
-      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
-        type: 2}
-      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
-        type: 2}
-      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: hpAnzeige
       value: 
-      objectReference: {fileID: 993892590}
-    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+      objectReference: {fileID: 1911415942}
+    - target: {fileID: 114547493998068388, guid: 1b2499aef91c52844b533d1587e0fa93,
         type: 2}
-      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NeuGenerieren
-      objectReference: {fileID: 0}
-    - target: {fileID: 114734891911855100, guid: 1b2499aef91c52844b533d1587e0fa93,
+      propertyPath: anfangsItem
+      value: 
+      objectReference: {fileID: 1478482565605924, guid: 171d0834e9496504eb4bc0b20df186eb,
         type: 2}
-      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
   m_IsPrefabParent: 0
@@ -793,15 +769,3 @@ GameObject:
   m_PrefabParentObject: {fileID: 1519671532131534, guid: 1b2499aef91c52844b533d1587e0fa93,
     type: 2}
   m_PrefabInternal: {fileID: 849406639}
---- !u!114 &2123089784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2123089775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c62c655981d674798ae33210e8db46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leben: 3
