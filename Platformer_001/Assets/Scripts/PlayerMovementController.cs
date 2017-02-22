@@ -36,11 +36,15 @@ public class PlayerMovementController : MonoBehaviour {
         this.richtung = richtung < 0.0f ? Richtung.LINKS : Richtung.RECHTS;
         rb.velocity = new Vector2(richtung * speed, rb.velocity.y);
     }
-	
+
+	public bool IstAmBoden() {
+		return rb.velocity.y < 0.001f && rb.velocity.y > -0.001f;
+	}
+
 	void Update() {
         Bewegen(Input.GetAxis("Horizontal"));
 
-        bool amBoden = rb.velocity.y < 0.001f && rb.velocity.y > -0.001f;
+		bool amBoden = IstAmBoden();
         anim.SetBool("jump", !amBoden);
 
         if (Input.GetButtonDown("Jump") && (amBoden || doubleJump)) {
