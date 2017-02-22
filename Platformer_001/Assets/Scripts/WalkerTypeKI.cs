@@ -19,16 +19,20 @@ public class WalkerTypeKI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		WalkRight ();
-		bool wallCheckRight = Physics2D.Raycast (new Vector2 (walkerObject.transform.position.x, walkerObject.transform.position.y), new Vector2 ((walkerObject.transform.position.x + 1), walkerObject.transform.position.y), rayLength);
-		bool wallCheckLeft = Physics2D.Raycast (new Vector2 (walkerObject.transform.position.x, walkerObject.transform.position.y), new Vector2 ((walkerObject.transform.position.x - 1), walkerObject.transform.position.y), rayLength);
-		if (wallCheckLeft) {
-			WalkRight ();
+		Vector2 origin = new Vector2 (walkerObject.transform.position.x, walkerObject.transform.position.y);
+		Vector2 directionR = new Vector2 (1,-0);
+		Vector2 directionL = new Vector2 (-1,-0);
+		bool wallCheckRight = Physics2D.Raycast (origin, directionR, rayLength);
+		bool wallCheckLeft = Physics2D.Raycast (origin, directionL, rayLength);
+		if (!wallCheckLeft) {
 			print("NachRechts");
-		}
-		if (wallCheckRight) {
 			WalkLeft ();
+		}
+		if (!wallCheckRight) {
 			print ("NachLinks");
+			WalkRight ();
+		} else {
+			WalkLeft ();
 		}
 	}
 
