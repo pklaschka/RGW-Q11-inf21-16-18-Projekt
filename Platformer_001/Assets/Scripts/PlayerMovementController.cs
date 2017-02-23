@@ -14,10 +14,6 @@ public class PlayerMovementController : MonoBehaviour {
     //private BoxCollider2D col;
     public Richtung richtung = Richtung.RECHTS;
 
-    public enum Richtung {
-        LINKS = -1, RECHTS = 1
-    };
-
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();

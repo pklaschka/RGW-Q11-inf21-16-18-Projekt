@@ -9,27 +9,29 @@ public class AngriffController : MonoBehaviour {
         // TODO: Muss noch implementiert werden.
     }
 
-    private void ProjektilFeuern(GameObject prefab) {
+    private GameObject ProjektilFeuern(GameObject prefab, float abstand = 2.5f) {
         var ply = FindObjectOfType<PlayerMovementController>();
-        bool rechts = ply.richtung == PlayerMovementController.Richtung.RECHTS;
-        float ad = 2.0f;
-        float d = rechts ? -ad : ad;
 
         var pos = new Vector3(
-            ply.transform.position.x + ad,
+            ply.transform.position.x + (float)ply.richtung * abstand,
             ply.transform.position.y,
             ply.transform.position.z
         );
 
         var proj = Instantiate(prefab, pos, Quaternion.identity);
         proj.transform.localScale = new Vector3(
-            (rechts ? 1.0f : -1.0f) * prefab.transform.localScale.x,
+            (float)ply.richtung * prefab.transform.localScale.x,
             prefab.transform.localScale.y,
             prefab.transform.localScale.z
         );
+
+        return proj;
     }
 
     public void WandAngriff() {
-        ProjektilFeuern(fireball);
+        var proj = ProjektilFeuern(fireball);
+        var ply = FindObjectOfType<PlayerMovementController>();
+        var feuerball = proj.GetComponent<Feuerball>();
+        if (feuerball != null) feuerball.bewegungsrichtung = ply.richtung;
     }
 }

@@ -92,9 +92,7 @@ public class ItemController : MonoBehaviour {
         angriffCooldownTimer = 0.0f;
         anim.SetTrigger(string.Format("attack-{0}", itemInHand.name));
 
-        print(waffe.angriffszeitverschiebung);
         StartCoroutine(Helfer.AusfuehrenNach(waffe.angriffszeitverschiebung, () => {
-            print("hach");
             if (waffe.angriffEvent != null) waffe.angriffEvent.Invoke(null);
         }));
     }
