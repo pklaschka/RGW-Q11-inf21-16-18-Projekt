@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   geschwindigkeit: 25
+  lebensdauer: 4
+  bewegungsrichtung: 0
 --- !u!212 &212930695982905650
 SpriteRenderer:
   m_ObjectHideFlags: 1
