@@ -61,7 +61,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &61581574294876436
 BoxCollider2D:
@@ -89,8 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   geschwindigkeit: 25
-  lebensdauer: 100
+  lebensdauer: 2
   bewegungsrichtung: 1
+  wandpartikel: {fileID: 1900511163297502, guid: 36ec897a0dd0896449243f2d6493e34a,
+    type: 2}
 --- !u!212 &212930695982905650
 SpriteRenderer:
   m_ObjectHideFlags: 1
