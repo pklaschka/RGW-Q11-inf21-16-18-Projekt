@@ -24,7 +24,12 @@ public class Feuerball : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+        // Wenn wir ein statisches Objekt (unbewegbare Objekte wie Tiles) treffen, erstellen
+        // wir für gute Ästhetik ein Partikelsystem.
         if (wandpartikel != null && collision.contacts.Length > 0 && collision.gameObject.isStatic) {
+            // Wir wollen das Partikelsystem in der Mitte der Kontaktpunkte erstellen.
+            // Zuerst müssen wir aus allen ContactPoint2Ds das "point" Attribut extrahieren.
+            // Das ganze speichern wir in vs.
             Vector2[] vs = new Vector2[collision.contacts.Length];
 
             for (int i = 0; i < vs.Length; ++i) {
@@ -32,10 +37,18 @@ public class Feuerball : MonoBehaviour {
             }
 
             var m = Helfer.MittelpunktFinden(vs);
+
+            // Wir rotieren das Partikelsystem um 90° bzw. -90°,
+            // damit es entgegen der Wand zeigt und es somit scheint,
+            // als würde es aus der Wand herauskommen.
             var rot = Quaternion.AngleAxis((float)bewegungsrichtung * -90.0f, Vector3.forward);
-            var wp = Instantiate(wandpartikel, new Vector3(m.x, m.y, 0.0f), rot);
+
+            // Wir erstellen das Partikelsystem mit der gesammelten Information.
+            Instantiate(wandpartikel, new Vector3(m.x, m.y, 0.0f), rot);
         }
+
         // TODO: Betroffenem GameObject Schaden zufügen, wenn möglich
+
         Destroy(gameObject);
     }
 }
