@@ -1099,6 +1099,7 @@ GameObject:
   - component: {fileID: 1955524769}
   - component: {fileID: 1955524768}
   - component: {fileID: 1955524767}
+  - component: {fileID: 1955524770}
   m_Layer: 5
   m_Name: Erneut versuchen
   m_TagString: Untagged
@@ -1163,7 +1164,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1955524768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1955524770}
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1955524768
@@ -1199,3 +1211,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1955524765}
+--- !u!114 &1955524770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1955524765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f69fb25dbf029542b0e2c55abd312cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameSceneToLoad: TestSzene(LevelGenerator)
+  BackgroundImage: {fileID: 744389642}
+  ProgressBar: {fileID: 1381748322}
