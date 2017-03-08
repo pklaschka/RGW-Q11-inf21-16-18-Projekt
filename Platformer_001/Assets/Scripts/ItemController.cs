@@ -82,12 +82,18 @@ public class ItemController : MonoBehaviour {
 
     public void Angreifen() {
 		var pmc = GetComponent<PlayerMovementController>();
-		if (pmc != null && !pmc.IstAmBoden ()) return;
+		if (pmc != null && !pmc.IstAmBoden()) return;
         if (itemInHand == null) return;
-        
-        anim.SetTrigger(string.Format("attack-{0}", itemInHand.name));
+
+        var waffe = itemInHand.GetComponent<Waffe>();
+        if (waffe == null) return;
 
         darfAngreifen = false;
         angriffCooldownTimer = 0.0f;
+        anim.SetTrigger(string.Format("attack-{0}", itemInHand.name));
+
+        StartCoroutine(Helfer.AusfuehrenNach(waffe.angriffszeitverschiebung, () => {
+            if (waffe.angriffEvent != null) waffe.angriffEvent.Invoke(null);
+        }));
     }
 }
