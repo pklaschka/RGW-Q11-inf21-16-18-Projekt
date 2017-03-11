@@ -12,6 +12,7 @@ public class MusicGenerator : MonoBehaviour {
 	}
 
 	public double frequency = 440;
+	[Range(0.01,5)]
 	public double gain = 1;
 
 	private double increment;
@@ -54,7 +55,7 @@ public class MusicGenerator : MonoBehaviour {
 		increment = frequency * 2 * Math.PI / sampling_frequency;
 		for (var i = 0; i < data.Length; i = i + channels)
 		{
-			phase = phase + increment;
+			phase += increment;
 			// this is where we copy audio data to make them “available” to Unity
 			data[i] = (float)(gain*Math.Sin(phase));
 			// if we have stereo, we copy the mono data to each channel
