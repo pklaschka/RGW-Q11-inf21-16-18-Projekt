@@ -10,13 +10,14 @@ public class Endlosmodus : MonoBehaviour {
 	int minPlatSize=3;
 	int maxPlatSize=7;
 	int maxHazardSize=4;
-	int maxUp=4;
-	int maxDown=-6;
+	int maxUp=3;
+	int maxDown=-2;
 	[Range(0,1)]
 	float hazardChance=.3f;
 	int lastX;
 	List<GameObject> spawnedTiles;
 	bool isHazard;
+	int spawnedBlocks=0;
 
 	void Start () {
 		spawnedTiles = new List<GameObject>();
@@ -36,8 +37,8 @@ public class Endlosmodus : MonoBehaviour {
 			Spawn ();
 			Delete ();
 			hazardChance += .01f;
-			print (hazardChance);
 		}
+		spawnedBlocks = 0;
 	}
 
 	void Spawn() {
@@ -53,6 +54,7 @@ public class Endlosmodus : MonoBehaviour {
 			isHazard = false;
 			for (int i = 2; i <= size * 2; i = i + 2) {
 				GameObject tile = Instantiate (grass, new Vector3 (lastX + 2, height, 0), new Quaternion ());
+				spawnedBlocks++;
 				lastX += 2;
 				spawnedTiles.Add (tile);
 			}
@@ -60,7 +62,7 @@ public class Endlosmodus : MonoBehaviour {
 	}
 
 	void Delete()	{
-		int f = Mathf.RoundToInt(Player.transform.position.x - spawnedTiles [0].transform.position.x - 100f);
+		int f = spawnedBlocks;
 		for (int i = 1; i <= f; i++) {
 			Destroy (spawnedTiles [0]);
 			spawnedTiles.RemoveAt (0);
