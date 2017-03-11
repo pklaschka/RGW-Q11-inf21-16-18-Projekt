@@ -64,8 +64,8 @@ public class Endlosmodus : MonoBehaviour {
 	void Delete()	{
 		int f = spawnedBlocks;
 		for (int i = 1; i <= f; i++) {
-			Destroy (spawnedTiles [0]);
-			spawnedTiles.RemoveAt (0);
+			Destroy (spawnedTiles [i]);
+			spawnedTiles.RemoveAt (i);
 		}
 	}
 }

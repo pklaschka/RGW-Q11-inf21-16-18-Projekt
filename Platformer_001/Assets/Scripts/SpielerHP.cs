@@ -32,10 +32,17 @@ public class SpielerHP : MonoBehaviour {
 		}
 
 		var levelGen = FindObjectOfType<LevelGenerator> ();
-		levelGen.NeuGenerieren ();
-		Vector3 newPos = new Vector3 (levelGen.spawnPoint.x, levelGen.spawnPoint.y, 0.0f);
-		transform.position = newPos;
-        hp = 100;
+		if (levelGen != null) {
+			levelGen.NeuGenerieren ();
+			Vector3 newPos = new Vector3 (levelGen.spawnPoint.x, levelGen.spawnPoint.y, 0.0f);
+			transform.position = newPos;
+			hp = 100;
+		}
+
+		var endlosGen = FindObjectOfType<Endlosmodus> ();
+		if (endlosGen != null) {
+			// TODO: Spawnpunkt des Endlosmodus finden??
+		}
 	}
 
 	public void SchadenZufuegen(int schaden) {
