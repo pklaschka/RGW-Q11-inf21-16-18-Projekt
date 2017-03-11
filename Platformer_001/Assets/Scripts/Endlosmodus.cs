@@ -42,7 +42,7 @@ public class Endlosmodus : MonoBehaviour {
 	}
 
 	void Spawn() {
-		if (hazardChance > Random.value && isHazard == false) {
+		if (hazardChance > Random.value && !isHazard) {
 			int size = Random.Range(2, maxHazardSize);
 			for (int i = 1; i <= size; i++) {
 				lastX += 2;
