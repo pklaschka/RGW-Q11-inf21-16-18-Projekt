@@ -536,7 +536,7 @@ MonoBehaviour:
     prefab: {fileID: 1478482565605924, guid: 171d0834e9496504eb4bc0b20df186eb, type: 2}
   defaultPrefabs:
   - type: 0
-    prefab: {fileID: 1792102471104630, guid: d27c1267ff1c3c14f8d764227371df6c, type: 2}
+    prefab: {fileID: 1792102471104630, guid: c7876e361f641a843950a49414b9a42a, type: 2}
   - type: 1
     prefab: {fileID: 1967912431008734, guid: 4ab129c002285f14f9c17592c97c6f5e, type: 2}
   tileSize: 2
