@@ -12,7 +12,8 @@ public class MusicGenerator : MonoBehaviour {
 	}
 
 	public double frequency = 440;
-	[Range(0.01,5)]
+
+	[Range(0.01f,5f)]
 	public double gain = 1;
 
 	private double increment;
