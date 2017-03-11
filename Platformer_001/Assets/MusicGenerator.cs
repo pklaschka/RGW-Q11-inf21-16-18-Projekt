@@ -53,7 +53,7 @@ public class MusicGenerator : MonoBehaviour {
 	{
 		// update increment in case frequency has changed
 		increment = frequency * 2 * Math.PI / sampling_frequency;
-		for (var i = 0; i < data.Length; i = i + channels)
+		for (var i = 0; i < data.Length; i += channels)
 		{
 			phase += increment;
 			// this is where we copy audio data to make them “available” to Unity
