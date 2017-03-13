@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 938743b2c22b84246a190203a070791a
-timeCreated: 1489176497
+guid: 0b02e5dfadc48a149b65b051c69825b5
+timeCreated: 1489399138
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: red_Brick
-    21300002: Stone_Brick
-    21300004: Dark_Stone
-    21300006: Blocks (1)_3
+    21300000: l_Plattform
+    21300002: r_Plattform
+    21300004: Plattform
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -44,7 +43,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -70,59 +69,43 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: red_Brick
+      name: l_Plattform
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 80
         width: 32
-        height: 32
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Stone_Brick
+      name: r_Plattform
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 0
+        y: 48
         width: 32
-        height: 32
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dark_Stone
+      name: Plattform
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 16
         width: 32
-        height: 32
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
