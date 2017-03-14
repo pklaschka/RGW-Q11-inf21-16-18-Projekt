@@ -367,7 +367,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 4.495303
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1273,8 +1273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000011921, y: -0.000017166}
-  m_SizeDelta: {x: 251, y: 129.25}
+  m_AnchoredPosition: {x: 0.000034433, y: 0.0052811}
+  m_SizeDelta: {x: 288, y: 139.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056605746
 MonoBehaviour:
