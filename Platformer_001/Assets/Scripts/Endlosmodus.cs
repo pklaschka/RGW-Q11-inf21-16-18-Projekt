@@ -5,12 +5,13 @@ using UnityEngine;
 public class Endlosmodus : MonoBehaviour {
 
 	public GameObject grass;
+	public GameObject ground;
 	public GameObject Player;
 
 	int minPlatSize=3;
 	int maxPlatSize=7;
 	int maxHazardSize=4;
-	int maxUp=3;
+	int maxUp=4;
 	int maxDown=-2;
 	[Range(0,1)]
 	float hazardChance=.3f;
@@ -25,6 +26,11 @@ public class Endlosmodus : MonoBehaviour {
 			lastX = i - 10;
 			GameObject tile = Instantiate (grass, new Vector3 (i - 10, 0, 0), new Quaternion ());
 			spawnedTiles.Add (tile);
+			for (int x = 1; x < 7; x++) {
+				GameObject uTile = Instantiate (ground, new Vector3 (i - 10,0 - 2 * x, 0), new Quaternion ());
+				spawnedBlocks++;
+				spawnedTiles.Add (uTile);
+			}
 		}
 		for (int a = 0; a <= 20; a++) {
 			Spawn ();
@@ -55,8 +61,13 @@ public class Endlosmodus : MonoBehaviour {
 			for (int i = 2; i <= size * 2; i = i + 2) {
 				GameObject tile = Instantiate (grass, new Vector3 (lastX + 2, height, 0), new Quaternion ());
 				spawnedBlocks++;
-				lastX += 2;
 				spawnedTiles.Add (tile);
+				for(int x = 1; x < 7;x++){
+					GameObject uTile = Instantiate (ground, new Vector3 (lastX + 2, height - 2*x, 0), new Quaternion ());
+					spawnedBlocks++;
+					spawnedTiles.Add(uTile);
+				}
+				lastX += 2;
 			}
 		}
 	}
@@ -64,8 +75,8 @@ public class Endlosmodus : MonoBehaviour {
 	void Delete()	{
 		int f = spawnedBlocks;
 		for (int i = 1; i <= f; i++) {
-			Destroy (spawnedTiles [i]);
-			spawnedTiles.RemoveAt (i);
+			Destroy (spawnedTiles [0]);
+			spawnedTiles.RemoveAt (0);
 		}
 	}
 }
