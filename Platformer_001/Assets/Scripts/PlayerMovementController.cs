@@ -7,6 +7,8 @@ public class PlayerMovementController : MonoBehaviour {
 	public float speed = 7.0f;
 	[Range(5.0f, 15.0f)]
 	public float jumpForce = 7.0f;
+	[Range(0.1f, 5.0f)]
+	public float playerScale = 0.8f;
 
     private bool doubleJump;
 	private Rigidbody2D rb;
@@ -62,6 +64,6 @@ public class PlayerMovementController : MonoBehaviour {
         */
         // x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
         var xScale = richtung == Richtung.LINKS ? -1f : 1f;
-        transform.localScale = new Vector3(xScale, 1, 1);
+        transform.localScale = new Vector3(xScale, 1, 1) * playerScale;
     }
 }
