@@ -31,8 +31,10 @@ Tile Arten:
 0x10 = Gras
 0x20 = Stein
 0x30 = Erde
+0x40 = Plattform (links) , 41 = Mitte , 42 = Rechts
 
 Item Arten:
 ==========
 0x00 = Nichts
 0x10 = Schwert
+0x20 = Zauberstab

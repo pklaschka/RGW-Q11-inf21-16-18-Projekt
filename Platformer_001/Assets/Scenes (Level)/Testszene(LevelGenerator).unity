@@ -104,7 +104,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4179982095714822, guid: 46792cb4fbc88fd4ca842f45a10b5fca, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -7.81
       objectReference: {fileID: 0}
     - target: {fileID: 4179982095714822, guid: 46792cb4fbc88fd4ca842f45a10b5fca, type: 2}
       propertyPath: m_LocalPosition.z
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178fa22e5bd970a4589abe5208902dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMap: {fileID: 2800000, guid: 181c8ac41fe69e048903badf5016486b, type: 3}
+  levelMap: {fileID: 2800000, guid: b6ab4c80e9ced9049b0e609a6e2651d3, type: 3}
   colourObjectMap:
   - colour:
       serializedVersion: 2
@@ -534,6 +534,21 @@ MonoBehaviour:
       rgba: 4278198527
     sprite: {fileID: 21300000, guid: dc3750d1db593ed458d07862d956952e, type: 3}
     prefab: {fileID: 1478482565605924, guid: 171d0834e9496504eb4bc0b20df186eb, type: 2}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278206464
+    sprite: {fileID: 21300000, guid: a7b3f7c610a830d4c8f374b01179bb78, type: 3}
+    prefab: {fileID: 0}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278206720
+    sprite: {fileID: 21300002, guid: a7b3f7c610a830d4c8f374b01179bb78, type: 3}
+    prefab: {fileID: 0}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278206976
+    sprite: {fileID: 21300004, guid: a7b3f7c610a830d4c8f374b01179bb78, type: 3}
+    prefab: {fileID: 0}
   defaultPrefabs:
   - type: 0
     prefab: {fileID: 1792102471104630, guid: c7876e361f641a843950a49414b9a42a, type: 2}
