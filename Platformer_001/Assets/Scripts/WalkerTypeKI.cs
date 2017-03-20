@@ -21,13 +21,15 @@ public class WalkerTypeKI : MonoBehaviour {
 	void Update () {
 		var links = Physics2D.Raycast (gameObject.transform.position, Vector2.left, 8.0f);
 		var rechts = Physics2D.Raycast (gameObject.transform.position, Vector2.right, 8.0f);
-
+		var linksUnten = Physics2D.Raycast (transform.position, new Vector2(-1.0f, -1.0f), 8.0f);
+		var rechtsUnten = Physics2D.Raycast (transform.position, new Vector2(1.0f, -1.0f), 8.0f);
 		Debug.DrawRay (gameObject.transform.position, Vector2.left * 8.0f, Color.red, 0.1f, false);
 		Debug.DrawRay (gameObject.transform.position, Vector2.right * 8.0f, Color.green, 0.1f, false);
 
 		print (links.distance);
 
-		if ((links.collider != null && links.distance < 2.2) || (rechts.collider != null && rechts.distance < 2.2)) {
+		if ((links.collider != null && links.distance < 2.2) || (rechts.collider != null && rechts.distance < 2.2) || 
+			(linksUnten.collider == null) || (rechtsUnten.collider == null)) {
 			print (links.distance + " " + rechts.distance);
 			d = d * -1;
 			print ("direction Changed");
