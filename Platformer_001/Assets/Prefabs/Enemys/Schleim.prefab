@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212819623109903920}
   - component: {fileID: 61798885987470446}
   - component: {fileID: 50861755151374014}
-  - component: {fileID: 114367818976960116}
-  m_Layer: 0
+  - component: {fileID: 114799338532626626}
+  m_Layer: 2
   m_Name: Schleim
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1660809210920558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.799095, y: -0.01191544, z: 0}
-  m_LocalScale: {x: 22.428541, y: 23.88389, z: 1}
+  m_LocalPosition: {x: 10.7, y: 2.5, z: 0}
+  m_LocalScale: {x: 10.558386, y: 15.919457, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,8 +61,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &61798885987470446
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -74,10 +74,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.00084753055, y: 0.0032558301}
+  m_Offset: {x: -0.00051812344, y: -0.0017301594}
   serializedVersion: 2
-  m_Size: {x: 0.09960973, y: 0.09153327}
---- !u!114 &114367818976960116
+  m_Size: {x: 0.39187142, y: 0.21119924}
+--- !u!114 &114799338532626626
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -85,12 +85,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1660809210920558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd044079d31517f4d8f9010df6526af7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4821cf1caed182c4c922e80585da4ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10.08
-  jumpForce: 7.8
-  highJumpForce: 16.1
+  walkerObject: {fileID: 1660809210920558}
+  speed: 10.09
 --- !u!212 &212819623109903920
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -122,7 +121,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 535fa4fdb44f9104f90d687ba56d1748, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90beb66d793824e4b999880d677a3443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -5,10 +5,6 @@ using UnityEngine;
 public class WalkerTypeKI : MonoBehaviour {
 	public GameObject walkerObject;
 	public float speed;
-
-	// Debug:
-	public float rayLength = 3f;
-
 	private Rigidbody2D walker;
 	private BoxCollider2D walkerCollider;
 	int d = -1;
@@ -16,24 +12,28 @@ public class WalkerTypeKI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		walker = GetComponent<Rigidbody2D>();
+		print("got rb2D");
 		walkerCollider = GetComponent<BoxCollider2D>();
+		print ("got Collider2D");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		//Vector2 origin = new Vector2(walkerObject.transform.position.x, walkerObject.transform.position.y);
-		//bool wallCheckRight = Physics2D.Raycast(origin, Vector2.right, rayLength);
-		//bool wallCheckLeft = Physics2D.Raycast(origin, Vector2.left, rayLength);
-		print(walker.velocity);
-		if (walker.velocity.magnitude < 0.1) {
+		var links = Physics2D.Raycast (gameObject.transform.position, Vector2.left, 8.0f);
+		var rechts = Physics2D.Raycast (gameObject.transform.position, Vector2.right, 8.0f);
+
+		Debug.DrawRay (gameObject.transform.position, Vector2.left * 8.0f, Color.red, 0.1f, false);
+		Debug.DrawRay (gameObject.transform.position, Vector2.right * 8.0f, Color.green, 0.1f, false);
+
+		print (links.distance);
+
+		if ((links.collider != null && links.distance < 2.2) || (rechts.collider != null && rechts.distance < 2.2)) {
+			print (links.distance + " " + rechts.distance);
 			d = d * -1;
+			print ("direction Changed");
 		}
-		Walk (d);
-			/*if (wallCheckLeft) {
-				WalkRight ();
-			} else if (wallCheckRight) {
-				WalkLeft ();
-			}*/
+
+		Walk(d);
 	}
 
 	public void Walk(int direction){
