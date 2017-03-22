@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6583e5ee25e1be149ae410063ec84bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grass: {fileID: 1792102471104630, guid: d27c1267ff1c3c14f8d764227371df6c, type: 2}
+  grass: {fileID: 1307255962819828, guid: 42cdbb2a52443a74daea24abb4125d77, type: 2}
   ground: {fileID: 1307255962819828, guid: ef89312eec3400743a77c3089b1df934, type: 2}
   Player: {fileID: 1017923748}
 --- !u!4 &1759744372
@@ -889,6 +889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1017923748}
+  offset: {x: 0, y: 0, z: -0}
+  multiplier: 2
 --- !u!81 &2099484846
 AudioListener:
   m_ObjectHideFlags: 0
