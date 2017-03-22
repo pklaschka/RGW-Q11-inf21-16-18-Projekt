@@ -889,8 +889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1017923748}
-  offset: {x: 0, y: 0, z: -0}
-  multiplier: 2
+  offset: {x: 0, y: 0.18, z: -0}
+  multiplier: 1.5
 --- !u!81 &2099484846
 AudioListener:
   m_ObjectHideFlags: 0
