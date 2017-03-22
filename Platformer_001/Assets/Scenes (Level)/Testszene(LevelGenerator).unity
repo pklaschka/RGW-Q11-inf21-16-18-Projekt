@@ -512,7 +512,7 @@ MonoBehaviour:
   - colour:
       serializedVersion: 2
       rgba: 4278194176
-    sprite: {fileID: 21300000, guid: a8e0a2d7a3d37b9468188990345eb889, type: 3}
+    sprite: {fileID: 21300000, guid: 4d91932d216714f45a1baff35121b8c0, type: 3}
     prefab: {fileID: 0}
   - colour:
       serializedVersion: 2
@@ -656,6 +656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 2123089775}
+  offset: {x: 0, y: 0, z: 0}
+  multiplier: 0
 --- !u!1 &1506076118
 GameObject:
   m_ObjectHideFlags: 0
