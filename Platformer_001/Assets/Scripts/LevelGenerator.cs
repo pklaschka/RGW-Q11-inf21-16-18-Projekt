@@ -120,17 +120,19 @@ public class LevelGenerator : MonoBehaviour {
     }
 
 	private void LoadMap(int levelIndex = 0) {
-		var config = JsonUtility.FromJson<LevelConfig>(levelConfig.text);
-		print("Levelname ist: " + config.name);
-
-		if (config.beleuchtung.sonnenlicht) {
-			var lightObject = new GameObject("Sonnenlicht");
-			var light = lightObject.AddComponent<Light>();
-			light.type = LightType.Directional;
-			light.transform.rotation = Quaternion.LookRotation(config.beleuchtung.sonnenlichtRichtung);
-		}
-
 		EmptyMap();
+
+		if (levelConfig != null) {
+			var config = JsonUtility.FromJson<LevelConfig> (levelConfig.text);
+			print ("Levelname ist: " + config.name);
+
+			if (config.beleuchtung.sonnenlicht) {
+				var lightObject = new GameObject ("Sonnenlicht");
+				var light = lightObject.AddComponent<Light> ();
+				light.type = LightType.Directional;
+				light.transform.rotation = Quaternion.LookRotation (config.beleuchtung.sonnenlichtRichtung);
+			}
+		}
 
 		Color32[] allPixels = levelMap.GetPixels32();
 
