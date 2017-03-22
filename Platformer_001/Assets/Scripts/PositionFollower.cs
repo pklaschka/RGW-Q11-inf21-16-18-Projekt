@@ -14,14 +14,11 @@ public class PositionFollower : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (parent.transform.position.y > 9) {
-			Vector3 targetVector = new Vector3 (0, parent.transform.position.y, 0);
-			print ("Target: " + targetVector);
-			transform.position =  Vector3.Slerp(transform.position, targetVector + offset, Time.deltaTime * multiplier);
-		} else {
-			transform.position =  Vector3.Slerp(transform.position, new Vector3 (0, 0, 0), Time.deltaTime * multiplier);
-		}
-		transform.position = new Vector3 (parent.transform.position.x, transform.position.y, -10f) + offset;
+	void Update ()
+	{
+		Vector3 a = new Vector3 (parent.transform.position.x, transform.position.y, -10f);
+		Vector3 b = new Vector3 (parent.transform.position.x, parent.transform.position.y + 2, -10f);
+		transform.position = Vector3.Slerp (a, b, Time.deltaTime*2);
+
 	}
 }
