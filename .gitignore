@@ -31,3 +31,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Platformer_001/Library/ScriptMapper
+Platformer_001/Library/AssetImportState
