@@ -6,7 +6,8 @@ public class Endlosmodus : MonoBehaviour {
 
 	public GameObject grass;
 	public GameObject ground;
-	public GameObject Player;
+	public GameObject Player;	
+	public GameObject redBrick;
 
 	int minPlatSize=2;
 	int maxPlatSize=6;
@@ -64,6 +65,17 @@ public class Endlosmodus : MonoBehaviour {
 					heightAlt = height;
 					isHazard = false;
 					for (int i = 2; i <= size * 2; i = i + 2) {
+					if (Random.value > 0.5f) {
+						GameObject tile = Instantiate (redBrick, new Vector3 (lastX + 2, height, 0), new Quaternion ());
+						spawnedBlocks++;
+						spawnedTiles.Add (tile);
+						for (int x = 1; x < 7; x++) {
+							GameObject uTile = Instantiate (redBrick, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
+							spawnedBlocks++;
+							spawnedTiles.Add (uTile);
+						}
+					}
+					else{
 						GameObject tile = Instantiate (grass, new Vector3 (lastX + 2, height, 0), new Quaternion ());
 						spawnedBlocks++;
 						spawnedTiles.Add (tile);
@@ -71,7 +83,7 @@ public class Endlosmodus : MonoBehaviour {
 							GameObject uTile = Instantiate (ground, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
 							spawnedBlocks++;
 							spawnedTiles.Add (uTile);
-					}
+							}}
 					lastX += 2;
 				}
 			}
