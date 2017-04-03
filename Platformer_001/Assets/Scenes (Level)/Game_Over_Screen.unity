@@ -91,6 +91,74 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &145978278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 145978279}
+  - component: {fileID: 145978281}
+  - component: {fileID: 145978280}
+  m_Layer: 5
+  m_Name: Image(Over)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &145978279
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 145978278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 925011885}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 53.3, y: 20.4}
+  m_SizeDelta: {x: 112.7, y: 33.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &145978280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 145978278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: a0bc9cf92b1ad9c42b463e7de45d319b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &145978281
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 145978278}
 --- !u!1 &340330279
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,12 +190,12 @@ RectTransform:
   m_Children:
   - {fileID: 633727519}
   m_Father: {fileID: 925011885}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -158.4}
-  m_SizeDelta: {x: 180, y: 35}
+  m_AnchoredPosition: {x: 0, y: -48.2}
+  m_SizeDelta: {x: 105, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &340330281
 MonoBehaviour:
@@ -226,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameSceneToLoad: Hauptmenue
-  BackgroundImage: {fileID: 744389642}
+  BackgroundImage: {fileID: 0}
   ProgressBar: {fileID: 1381748322}
 --- !u!1 &633727518
 GameObject:
@@ -284,7 +352,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 10
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -403,8 +471,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 0}
-  m_SizeDelta: {x: 116, y: 106}
+  m_AnchoredPosition: {x: -62.350002, y: 44}
+  m_SizeDelta: {x: 25.3, y: 7.8919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744389642
 MonoBehaviour:
@@ -725,7 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 4
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -763,6 +831,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 744389641}
+  - {fileID: 145978279}
   - {fileID: 1955524766}
   - {fileID: 340330280}
   - {fileID: 1381748321}
@@ -925,7 +994,7 @@ RectTransform:
   - {fileID: 1002421848}
   - {fileID: 1820481859}
   m_Father: {fileID: 925011885}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1070,7 +1139,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 10
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1119,12 +1188,12 @@ RectTransform:
   m_Children:
   - {fileID: 1840188563}
   m_Father: {fileID: 925011885}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -111.3}
-  m_SizeDelta: {x: 180, y: 35}
+  m_AnchoredPosition: {x: 0, y: -18.8}
+  m_SizeDelta: {x: 105, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1955524767
 MonoBehaviour:
@@ -1223,5 +1292,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameSceneToLoad: TestSzene(LevelGenerator)
-  BackgroundImage: {fileID: 744389642}
+  BackgroundImage: {fileID: 0}
   ProgressBar: {fileID: 1381748322}
