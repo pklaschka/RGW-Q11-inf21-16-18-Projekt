@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: f8ca9eb75a70f1e40acef7428b259d6a
-timeCreated: 1487760397
+timeCreated: 1490179744
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Croc_head
+    21300002: Croc_body
+    21300004: Crocodile_2
+    21300006: Croc-leg
+    21300008: Croc_Tail
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -27,14 +32,14 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +63,82 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Croc_head
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 37
+        width: 15
+        height: 8
+      alignment: 9
+      pivot: {x: 0.060825348, y: 0.294137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Croc_body
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 36
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Crocodile_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 30
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0.3023716, y: 0.92819595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Croc-leg
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 30
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0.3023716, y: 0.8952576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Croc_Tail
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 37
+        width: 11
+        height: 12
+      alignment: 9
+      pivot: {x: 1.0090427, y: 0.17061932}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
