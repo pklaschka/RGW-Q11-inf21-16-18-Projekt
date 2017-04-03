@@ -31,6 +31,7 @@ public class LevelGenerator : MonoBehaviour {
     
     [Header("Essentielle Parameter")]
     public Texture2D levelMap;
+	public TextAsset levelConfig;
 
     [Header("Zuordnungen")]
     public ColourToObject[] colourObjectMap;
@@ -120,6 +121,18 @@ public class LevelGenerator : MonoBehaviour {
 
 	private void LoadMap(int levelIndex = 0) {
 		EmptyMap();
+
+		if (levelConfig != null) {
+			var config = JsonUtility.FromJson<LevelConfig> (levelConfig.text);
+			print ("Levelname ist: " + config.name);
+
+			if (config.beleuchtung.sonnenlicht) {
+				var lightObject = new GameObject ("Sonnenlicht");
+				var light = lightObject.AddComponent<Light> ();
+				light.type = LightType.Directional;
+				light.transform.rotation = Quaternion.LookRotation (config.beleuchtung.sonnenlichtRichtung);
+			}
+		}
 
 		Color32[] allPixels = levelMap.GetPixels32();
 
