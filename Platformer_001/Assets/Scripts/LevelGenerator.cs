@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class LevelGenerator : MonoBehaviour {
     [Serializable]
@@ -32,6 +33,7 @@ public class LevelGenerator : MonoBehaviour {
     [Header("Essentielle Parameter")]
     public Texture2D levelMap;
 	public TextAsset levelConfig;
+	public SpriteRenderer backgroundLeft, backgroundRight;
 
     [Header("Zuordnungen")]
     public ColourToObject[] colourObjectMap;
@@ -119,9 +121,7 @@ public class LevelGenerator : MonoBehaviour {
         }
     }
 
-	private void LoadMap(int levelIndex = 0) {
-		EmptyMap();
-
+	private void LoadConfig() {
 		if (levelConfig != null) {
 			var config = JsonUtility.FromJson<LevelConfig> (levelConfig.text);
 			print ("Levelname ist: " + config.name);
@@ -132,7 +132,21 @@ public class LevelGenerator : MonoBehaviour {
 				light.type = LightType.Directional;
 				light.transform.rotation = Quaternion.LookRotation (config.beleuchtung.sonnenlichtRichtung);
 			}
+
+			if (config.hintergrund != null) {
+				var backgroundTex = AssetDatabase.LoadAssetAtPath(config.hintergrund, typeof(Sprite));
+
+				if (backgroundLeft != null && backgroundRight != null) {
+					backgroundLeft.sprite = (Sprite) backgroundTex;
+					backgroundRight.sprite = (Sprite) backgroundTex;
+				}
+			}
 		}
+	}
+
+	private void LoadMap(int levelIndex = 0) {
+		EmptyMap();
+		LoadConfig();
 
 		Color32[] allPixels = levelMap.GetPixels32();
 

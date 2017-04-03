@@ -382,6 +382,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMap: {fileID: 2800000, guid: 181c8ac41fe69e048903badf5016486b, type: 3}
   levelConfig: {fileID: 4900000, guid: 92244097c2d9bb34cb7386df95411f29, type: 3}
+  backgroundLeft: {fileID: 653868773}
+  backgroundRight: {fileID: 1768509499}
   colourObjectMap:
   - colour:
       serializedVersion: 2
