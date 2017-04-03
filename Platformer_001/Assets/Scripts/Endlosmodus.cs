@@ -21,6 +21,7 @@ public class Endlosmodus : MonoBehaviour {
 	bool isHazard;
 	int spawnedBlocks=0;
 	int heightAlt;
+	int height;
 
 	void Start () {
 		spawnedTiles = new List<GameObject>();
@@ -58,33 +59,14 @@ public class Endlosmodus : MonoBehaviour {
 			}
 		} else {
 			int size = Random.Range (minPlatSize, maxPlatSize);
-				int height = Random.Range (maxUp, maxDown);
+				 height = Random.Range (maxUp, maxDown);
 			if (Mathf.Abs (heightAlt - height) >= 6) {
 				Spawn ();
-				} else {
-					heightAlt = height;
-					isHazard = false;
-					for (int i = 2; i <= size * 2; i = i + 2) {
-					if (Random.value > 0.5f) {
-						GameObject tile = Instantiate (redBrick, new Vector3 (lastX + 2, height, 0), new Quaternion ());
-						spawnedBlocks++;
-						spawnedTiles.Add (tile);
-						for (int x = 1; x < 7; x++) {
-							GameObject uTile = Instantiate (redBrick, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
-							spawnedBlocks++;
-							spawnedTiles.Add (uTile);
-						}
-					}
-					else{
-						GameObject tile = Instantiate (grass, new Vector3 (lastX + 2, height, 0), new Quaternion ());
-						spawnedBlocks++;
-						spawnedTiles.Add (tile);
-						for (int x = 1; x < 7; x++) {
-							GameObject uTile = Instantiate (ground, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
-							spawnedBlocks++;
-							spawnedTiles.Add (uTile);
-							}}
-					lastX += 2;
+			} else {
+				heightAlt = height;
+				isHazard = false;
+				for (int i = 2; i <= size * 2; i = i + 2) {
+					SpawnLine (redBrick, false, ground);
 				}
 			}
 		}
@@ -97,4 +79,18 @@ public class Endlosmodus : MonoBehaviour {
 			spawnedTiles.RemoveAt (0);
 		}
 	}
-}
+
+	void SpawnLine(GameObject block, bool ground, GameObject groundBlock)
+	{
+			GameObject tile = Instantiate (block, new Vector3 (lastX + 2, height, 0), new Quaternion ());
+			spawnedBlocks++;
+			spawnedTiles.Add (tile);
+			if(ground){
+			for (int x = 1; x < 7; x++) {
+				GameObject uTile = Instantiate (groundBlock, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
+				spawnedBlocks++;
+				spawnedTiles.Add (uTile);
+				}}
+			lastX += 2;
+		}
+	}
