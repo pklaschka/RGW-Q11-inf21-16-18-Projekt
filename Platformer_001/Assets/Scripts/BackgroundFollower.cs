@@ -30,7 +30,6 @@ public class BackgroundFollower : MonoBehaviour {
 			bg1 = bg2;
 			bg2 = bg4;
 			pos += 120;
-			print ("done" + pos);
 		}
 	}
 }

@@ -8,6 +8,7 @@ public class Endlosmodus : MonoBehaviour {
 	public GameObject ground;
 	public GameObject Player;	
 	public GameObject redBrick;
+	public GameObject brick;
 
 	int minPlatSize=2;
 	int maxPlatSize=6;
@@ -22,6 +23,8 @@ public class Endlosmodus : MonoBehaviour {
 	int spawnedBlocks=0;
 	int heightAlt;
 	int height;
+	int blockArt = 1;
+	int counter = 25;
 
 	void Start () {
 		spawnedTiles = new List<GameObject>();
@@ -48,9 +51,16 @@ public class Endlosmodus : MonoBehaviour {
 			hazardChance += .01f;
 		}
 		spawnedBlocks = 0;
+			if(counter <= 0)
+			{
+			blockArt = Mathf.RoundToInt(Random.Range(0,2));
+					counter = 25;
+			print (blockArt);
+			}
 	}
 
 	void Spawn() {
+		counter -= 1;
 		if (hazardChance > Random.value && !isHazard) {
 			int size = Random.Range(2, maxHazardSize);
 			for (int i = 1; i <= size; i++) {
@@ -66,7 +76,21 @@ public class Endlosmodus : MonoBehaviour {
 				heightAlt = height;
 				isHazard = false;
 				for (int i = 2; i <= size * 2; i = i + 2) {
-					SpawnLine (redBrick, false, ground);
+					switch(blockArt)
+					{
+					case 0:
+						SpawnLine (redBrick, false, ground);
+						break;
+					case 1:
+						SpawnLine (grass, true, ground);
+						break;
+					case 2:
+						SpawnLine (brick, false, ground);
+						break;
+					default:
+						print ("Fehler");
+						break;
+					}
 				}
 			}
 		}
@@ -74,6 +98,7 @@ public class Endlosmodus : MonoBehaviour {
 
 	void Delete()	{
 		int f = spawnedBlocks;
+		print (f);
 		for (int i = 1; i <= f; i++) {
 			Destroy (spawnedTiles [0]);
 			spawnedTiles.RemoveAt (0);
