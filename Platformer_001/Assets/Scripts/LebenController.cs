@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LebenController : MonoBehaviour {
 	public int leben;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +18,7 @@ public class LebenController : MonoBehaviour {
 	public void GameOver()
 	{
 		print ("Du bist Tod!");
+		SceneManager.LoadScene("Game_Over_Screen");
 	}
 
 	public void Sterben()
