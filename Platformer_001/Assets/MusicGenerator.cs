@@ -57,16 +57,19 @@ public class MusicGenerator : MonoBehaviour {
 
 	void OnAudioFilterRead(float[] data, int channels)
 	{
-		// update increment in case frequency has changed
-		increment = frequency * 2 * Math.PI / sampling_frequency;
-		for (var i = 0; i < data.Length; i += channels)
-		{
-			phase += increment;
-			// this is where we copy audio data to make them “available” to Unity
-			data[i] = (float)(gain*Math.Sqrt(phase));
-			// if we have stereo, we copy the mono data to each channel
-			if (channels == 2) data[i + 1] = data[i];
-			if (phase > 2 * Math.PI) phase = 0;
+		if (ticksPerBar > 0) {
+			// update increment in case frequency has changed
+			increment = frequency * 2 * Math.PI / sampling_frequency;
+			for (var i = 0; i < data.Length; i += channels) {
+				phase += increment;
+				// this is where we copy audio data to make them “available” to Unity
+				data [i] = (float)(gain * Math.Sqrt (phase));
+				// if we have stereo, we copy the mono data to each channel
+				if (channels == 2)
+					data [i + 1] = data [i];
+				if (phase > 2 * Math.PI)
+					phase = 0;
+			}
 		}
 	}
 }
