@@ -34,6 +34,11 @@ public class MusicGenerator : MonoBehaviour {
 		493.88
 	};
 
+	public enum audioMethod{
+		Sinus,
+		Sqrt
+	}
+
 	private System.Random r;
 
 	void FixedUpdate() {
@@ -58,7 +63,7 @@ public class MusicGenerator : MonoBehaviour {
 		{
 			phase += increment;
 			// this is where we copy audio data to make them “available” to Unity
-			data[i] = (float)(gain*Math.Sin(phase));
+			data[i] = (float)(gain*Math.Sqrt(phase));
 			// if we have stereo, we copy the mono data to each channel
 			if (channels == 2) data[i + 1] = data[i];
 			if (phase > 2 * Math.PI) phase = 0;
