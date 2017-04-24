@@ -45,6 +45,8 @@ public class LevelGenerator : MonoBehaviour {
 
 	public Vector2 spawnPoint;
 
+	public static Texture2D letzterLevel;
+
     private readonly Dictionary<int, ObjectDef> idTileDict = new Dictionary<int, ObjectDef>();
     private readonly Dictionary<int, ObjectDef> idItemDict = new Dictionary<int, ObjectDef>();
 
@@ -145,6 +147,12 @@ public class LevelGenerator : MonoBehaviour {
 	}
 
 	private void LoadMap(int levelIndex = 0) {
+		if (letzterLevel != null) {
+			levelMap = letzterLevel;
+		} else {
+			letzterLevel = levelMap;
+		}
+
 		EmptyMap();
 		LoadConfig();
 
@@ -195,9 +203,8 @@ public class LevelGenerator : MonoBehaviour {
         return obj;
     }
 
-	public void NeuGenerieren()
-	{
-		EmptyMap ();
-		LoadMap ();
+	public void NeuGenerieren() {
+		EmptyMap();
+		LoadMap();
 	}
 }
