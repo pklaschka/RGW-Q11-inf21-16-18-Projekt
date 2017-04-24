@@ -38,3 +38,10 @@ Item Arten:
 0x00 = Nichts
 0x10 = Schwert
 0x20 = Zauberstab
+
+ACHTUNG !!!!!!!:
+================
+Leveltexturen m¨¹ssen bestimmte Komprimierungseinstellungen haben:
+1. Override for PC, Mac & Linux Standalone anmachen
+2. Format auf RGBA 32 bit setzen
+3. Freune

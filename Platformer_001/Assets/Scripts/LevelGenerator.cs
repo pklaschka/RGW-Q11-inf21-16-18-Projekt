@@ -106,6 +106,7 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     private void DecodeMapInfo(Color32 pixel, int x, int y) {
+		print (pixel.r);
         switch (pixel.r) {
         case 0x00:
             CommonDecode(idTileDict, pixel.g, (def, id) => SpawnObjectAt(def, id, x, y));
@@ -163,7 +164,7 @@ public class LevelGenerator : MonoBehaviour {
 
 		var player = FindObjectOfType<PlayerMovementController>();
 		if (player != null) {
-			player.gameObject.transform.position = new Vector3 (spawnPoint.x, spawnPoint.y, 0.0f);
+			player.gameObject.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, 0.0f);
 		}
 	}
 
@@ -195,9 +196,8 @@ public class LevelGenerator : MonoBehaviour {
         return obj;
     }
 
-	public void NeuGenerieren()
-	{
-		EmptyMap ();
-		LoadMap ();
+	public void NeuGenerieren() {
+		EmptyMap();
+		LoadMap();
 	}
 }
