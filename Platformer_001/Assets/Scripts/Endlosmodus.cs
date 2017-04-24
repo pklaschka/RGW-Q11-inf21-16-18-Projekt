@@ -79,13 +79,13 @@ public class Endlosmodus : MonoBehaviour {
 					switch(blockArt)
 					{
 					case 0:
-						SpawnLine (redBrick, false, ground);
+						SpawnLine (redBrick, true, redBrick);
 						break;
 					case 1:
 						SpawnLine (grass, true, ground);
 						break;
 					case 2:
-						SpawnLine (brick, false, ground);
+						SpawnLine (brick, true, brick);
 						break;
 					default:
 						print ("Fehler");
