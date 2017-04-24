@@ -567,7 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1017923748}
   Background: {fileID: 1260914583439694, guid: d1a7fcc3deca12a4794c2f357a39f977, type: 2}
-  offset: {x: 0, y: 4, z: -1}
+  offset: {x: 0, y: 5, z: -1}
 --- !u!1001 &1897418661
 Prefab:
   m_ObjectHideFlags: 0
@@ -808,7 +808,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1882353, g: 0.36078432, b: 0.94509804, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
