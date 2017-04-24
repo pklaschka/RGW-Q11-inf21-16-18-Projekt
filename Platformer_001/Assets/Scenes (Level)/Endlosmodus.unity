@@ -540,7 +540,8 @@ MonoBehaviour:
   grass: {fileID: 1307255962819828, guid: 42cdbb2a52443a74daea24abb4125d77, type: 2}
   ground: {fileID: 1307255962819828, guid: ef89312eec3400743a77c3089b1df934, type: 2}
   Player: {fileID: 1017923748}
-  redBrick: {fileID: 1307255962819828, guid: 75c356375ccfac04cbe6d5f5535b023f, type: 2}
+  redBrick: {fileID: 1307255962819828, guid: 695a0116c593ca3469a5896f94be4b0b, type: 2}
+  brick: {fileID: 1307255962819828, guid: 75c356375ccfac04cbe6d5f5535b023f, type: 2}
 --- !u!4 &1759744372
 Transform:
   m_ObjectHideFlags: 0
@@ -777,7 +778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1017923748}
-  offset: 0
+  offset: {x: 0, y: -2, z: 0}
 --- !u!81 &2099484846
 AudioListener:
   m_ObjectHideFlags: 0

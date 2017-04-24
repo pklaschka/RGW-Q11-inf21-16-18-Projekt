@@ -8,6 +8,7 @@ public class Endlosmodus : MonoBehaviour {
 	public GameObject ground;
 	public GameObject Player;	
 	public GameObject redBrick;
+	public GameObject brick;
 
 	int minPlatSize=2;
 	int maxPlatSize=6;
@@ -21,6 +22,9 @@ public class Endlosmodus : MonoBehaviour {
 	bool isHazard;
 	int spawnedBlocks=0;
 	int heightAlt;
+	int height;
+	int blockArt = 1;
+	int counter = 25;
 
 	void Start () {
 		spawnedTiles = new List<GameObject>();
@@ -47,9 +51,16 @@ public class Endlosmodus : MonoBehaviour {
 			hazardChance += .01f;
 		}
 		spawnedBlocks = 0;
+			if(counter <= 0)
+			{
+			blockArt = Mathf.RoundToInt(Random.Range(0,2));
+					counter = 25;
+			print (blockArt);
+			}
 	}
 
 	void Spawn() {
+		counter -= 1;
 		if (hazardChance > Random.value && !isHazard) {
 			int size = Random.Range(2, maxHazardSize);
 			for (int i = 1; i <= size; i++) {
@@ -58,33 +69,28 @@ public class Endlosmodus : MonoBehaviour {
 			}
 		} else {
 			int size = Random.Range (minPlatSize, maxPlatSize);
-				int height = Random.Range (maxUp, maxDown);
+				 height = Random.Range (maxUp, maxDown);
 			if (Mathf.Abs (heightAlt - height) >= 6) {
 				Spawn ();
-				} else {
-					heightAlt = height;
-					isHazard = false;
-					for (int i = 2; i <= size * 2; i = i + 2) {
-					if (Random.value > 0.5f) {
-						GameObject tile = Instantiate (redBrick, new Vector3 (lastX + 2, height, 0), new Quaternion ());
-						spawnedBlocks++;
-						spawnedTiles.Add (tile);
-						for (int x = 1; x < 7; x++) {
-							GameObject uTile = Instantiate (redBrick, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
-							spawnedBlocks++;
-							spawnedTiles.Add (uTile);
-						}
+			} else {
+				heightAlt = height;
+				isHazard = false;
+				for (int i = 2; i <= size * 2; i = i + 2) {
+					switch(blockArt)
+					{
+					case 0:
+						SpawnLine (redBrick, true, redBrick);
+						break;
+					case 1:
+						SpawnLine (grass, true, ground);
+						break;
+					case 2:
+						SpawnLine (brick, true, brick);
+						break;
+					default:
+						print ("Fehler");
+						break;
 					}
-					else{
-						GameObject tile = Instantiate (grass, new Vector3 (lastX + 2, height, 0), new Quaternion ());
-						spawnedBlocks++;
-						spawnedTiles.Add (tile);
-						for (int x = 1; x < 7; x++) {
-							GameObject uTile = Instantiate (ground, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
-							spawnedBlocks++;
-							spawnedTiles.Add (uTile);
-							}}
-					lastX += 2;
 				}
 			}
 		}
@@ -92,9 +98,24 @@ public class Endlosmodus : MonoBehaviour {
 
 	void Delete()	{
 		int f = spawnedBlocks;
+		print (f);
 		for (int i = 1; i <= f; i++) {
 			Destroy (spawnedTiles [0]);
 			spawnedTiles.RemoveAt (0);
 		}
 	}
-}
+
+	void SpawnLine(GameObject block, bool ground, GameObject groundBlock)
+	{
+			GameObject tile = Instantiate (block, new Vector3 (lastX + 2, height, 0), new Quaternion ());
+			spawnedBlocks++;
+			spawnedTiles.Add (tile);
+			if(ground){
+			for (int x = 1; x < 7; x++) {
+				GameObject uTile = Instantiate (groundBlock, new Vector3 (lastX + 2, height - 2 * x, 0), new Quaternion ());
+				spawnedBlocks++;
+				spawnedTiles.Add (uTile);
+				}}
+			lastX += 2;
+		}
+	}

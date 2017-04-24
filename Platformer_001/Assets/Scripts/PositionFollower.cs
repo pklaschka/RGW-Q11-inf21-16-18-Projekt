@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PositionFollower : MonoBehaviour {
 	public GameObject parent;
 
-	public float offset;
+	public Vector3 offset;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,9 +15,13 @@ public class PositionFollower : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Vector3 a = new Vector3 (parent.transform.position.x, transform.position.y, -10f);
-		Vector3 b = new Vector3 (parent.transform.position.x, parent.transform.position.y + offset, -10f);
-		transform.position = Vector3.Slerp (a, b, Time.deltaTime*2);
-
+		var a = new Vector3 (parent.transform.position.x, transform.position.y, -10f);
+		var b = new Vector3 (parent.transform.position.x, parent.transform.position.y + 2, -10f);
+		transform.position = Vector3.Slerp(a, b + offset, Time.deltaTime*2);
+		transform.position = new Vector3 (
+			(float)Math.Round (transform.position.x, 3),
+			(float)Math.Round (transform.position.y, 3),
+			(float)Math.Round (transform.position.z, 3)
+		);
 	}
 }
