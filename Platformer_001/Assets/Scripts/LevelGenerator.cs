@@ -106,7 +106,6 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     private void DecodeMapInfo(Color32 pixel, int x, int y) {
-		print (pixel.r);
         switch (pixel.r) {
         case 0x00:
             CommonDecode(idTileDict, pixel.g, (def, id) => SpawnObjectAt(def, id, x, y));
