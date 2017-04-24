@@ -9,9 +9,10 @@ public class Endlosmodus : MonoBehaviour {
 	public GameObject Player;	
 	public GameObject redBrick;
 	public GameObject brick;
+	public GameObject crocodile;
 
 	int minPlatSize=2;
-	int maxPlatSize=6;
+	int maxPlatSize=8;
 	int maxHazardSize=5;
 	int maxUp=6;
 	int maxDown=-4;
@@ -93,7 +94,10 @@ public class Endlosmodus : MonoBehaviour {
 					}
 				}
 			}
-		}
+			if (size >= 7) {
+				Instantiate(crocodile, new Vector3(lastX, height + 1, 0), new Quaternion());
+			}
+		} 
 	}
 
 	void Delete()	{

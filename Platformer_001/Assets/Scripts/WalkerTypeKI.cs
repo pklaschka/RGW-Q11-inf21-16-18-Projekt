@@ -22,10 +22,10 @@ public class WalkerTypeKI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		var links = Physics2D.Raycast (gameObject.transform.position, Vector2.left, 8.0f);
-		var rechts = Physics2D.Raycast (gameObject.transform.position, Vector2.right, 8.0f);
-		var linksUnten = Physics2D.Raycast (transform.position, new Vector2(-1.0f, -0.75f), 8.0f);
-		var rechtsUnten = Physics2D.Raycast (transform.position, new Vector2(1.0f, -0.75f), 8.0f);
+		var links = Physics2D.Raycast (gameObject.transform.position, Vector2.left, 4.0f);
+		var rechts = Physics2D.Raycast (gameObject.transform.position, Vector2.right, 4.0f);
+		var linksUnten = Physics2D.Raycast (transform.position, new Vector2(-1.0f, -0.75f), 4.0f);
+		var rechtsUnten = Physics2D.Raycast (transform.position, new Vector2(1.0f, -0.75f), 4.0f);
 		//Debug.DrawRay (gameObject.transform.position, Vector2.left * 8.0f, Color.red, 0.1f, false);
 		//Debug.DrawRay (gameObject.transform.position, Vector2.right * 8.0f, Color.green, 0.1f, false);
 
