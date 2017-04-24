@@ -163,7 +163,7 @@ public class LevelGenerator : MonoBehaviour {
 
 		var player = FindObjectOfType<PlayerMovementController>();
 		if (player != null) {
-			player.gameObject.transform.position = new Vector3 (spawnPoint.x, spawnPoint.y, 0.0f);
+			player.gameObject.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, 0.0f);
 		}
 	}
 
@@ -195,9 +195,8 @@ public class LevelGenerator : MonoBehaviour {
         return obj;
     }
 
-	public void NeuGenerieren()
-	{
-		EmptyMap ();
-		LoadMap ();
+	public void NeuGenerieren() {
+		EmptyMap();
+		LoadMap();
 	}
 }

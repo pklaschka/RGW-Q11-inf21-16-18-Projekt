@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178fa22e5bd970a4589abe5208902dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMap: {fileID: 2800000, guid: 181c8ac41fe69e048903badf5016486b, type: 3}
+  levelMap: {fileID: 2800000, guid: f7c6fb01eb0097a448a5c2600dd7434b, type: 3}
   levelConfig: {fileID: 4900000, guid: 92244097c2d9bb34cb7386df95411f29, type: 3}
   backgroundLeft: {fileID: 653868773}
   backgroundRight: {fileID: 1768509499}
@@ -410,6 +410,21 @@ MonoBehaviour:
       rgba: 4278198527
     sprite: {fileID: 21300000, guid: dc3750d1db593ed458d07862d956952e, type: 3}
     prefab: {fileID: 1478482565605924, guid: 171d0834e9496504eb4bc0b20df186eb, type: 2}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278206464
+    sprite: {fileID: 21300000, guid: a7b3f7c610a830d4c8f374b01179bb78, type: 3}
+    prefab: {fileID: 1792102471104630, guid: 133c50c324aa2af47aa2c07b2315af10, type: 2}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278206720
+    sprite: {fileID: 21300004, guid: a7b3f7c610a830d4c8f374b01179bb78, type: 3}
+    prefab: {fileID: 1792102471104630, guid: 133c50c324aa2af47aa2c07b2315af10, type: 2}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278206976
+    sprite: {fileID: 21300002, guid: a7b3f7c610a830d4c8f374b01179bb78, type: 3}
+    prefab: {fileID: 1792102471104630, guid: 133c50c324aa2af47aa2c07b2315af10, type: 2}
   defaultPrefabs:
   - type: 0
     prefab: {fileID: 1792102471104630, guid: c7876e361f641a843950a49414b9a42a, type: 2}
