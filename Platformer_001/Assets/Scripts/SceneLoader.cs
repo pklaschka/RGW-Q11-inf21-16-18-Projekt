@@ -30,6 +30,10 @@ public class SceneLoader : MonoBehaviour {
 		}
 	}
 
+	public void LoadLastLevel() {
+		SceneManager.LoadScene("Testszene(LevelGenerator)");
+	}
+
 	IEnumerator StartSceneLoad() {
 		async = SceneManager.LoadSceneAsync(NameSceneToLoad);
 		if( null != async )

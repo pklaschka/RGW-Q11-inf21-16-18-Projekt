@@ -861,17 +861,10 @@ RectTransform:
   m_Father: {fileID: 99692962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000019073, y: 0}
-  m_SizeDelta: {x: 574, y: 267.5}
-=======
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000023842, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
->>>>>>> origin/Optionen
+  m_AnchoredPosition: {x: 0.0010145, y: -0.0012534}
+  m_SizeDelta: {x: 251, y: 129.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338528203
 MonoBehaviour:
@@ -1274,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f69fb25dbf029542b0e2c55abd312cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameSceneToLoad: Testszene(LevelGenerator)
+  NameSceneToLoad: Levelauswahl
   BackgroundImage: {fileID: 1761570554}
   ProgressBar: {fileID: 380652606}
 --- !u!1 &2053342147
