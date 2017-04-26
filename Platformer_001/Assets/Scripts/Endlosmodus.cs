@@ -70,7 +70,7 @@ public class Endlosmodus : MonoBehaviour {
 			}
 		} else {
 			int size = Random.Range (minPlatSize, maxPlatSize);
-				 height = Random.Range (maxUp, maxDown);
+			height = Mathf.RoundToInt(Random.Range (maxUp, maxDown)/2)*2;
 			if (Mathf.Abs (heightAlt - height) >= 6) {
 				Spawn ();
 			} else {
