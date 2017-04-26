@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178fa22e5bd970a4589abe5208902dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMap: {fileID: 2800000, guid: f7c6fb01eb0097a448a5c2600dd7434b, type: 3}
+  levelMap: {fileID: 2800000, guid: d28902f50c64ac04a9e518ef0a4de3d8, type: 3}
   levelConfig: {fileID: 4900000, guid: 92244097c2d9bb34cb7386df95411f29, type: 3}
   backgroundLeft: {fileID: 653868773}
   backgroundRight: {fileID: 1768509499}
@@ -548,7 +548,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2123089775}
   offset: {x: 0, y: 0, z: 0}
-  multiplier: 0
 --- !u!1 &1506076118
 GameObject:
   m_ObjectHideFlags: 0
