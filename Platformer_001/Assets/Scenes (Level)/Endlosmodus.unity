@@ -542,6 +542,7 @@ MonoBehaviour:
   Player: {fileID: 1017923748}
   redBrick: {fileID: 1307255962819828, guid: 695a0116c593ca3469a5896f94be4b0b, type: 2}
   brick: {fileID: 1307255962819828, guid: 75c356375ccfac04cbe6d5f5535b023f, type: 2}
+  crocodile: {fileID: 1660809210920558, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
 --- !u!4 &1759744372
 Transform:
   m_ObjectHideFlags: 0
