@@ -1235,7 +1235,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1955524770}
-        m_MethodName: LoadLastLevel
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1291,6 +1291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f69fb25dbf029542b0e2c55abd312cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameSceneToLoad: TestSzene(LevelGenerator)
+  NameSceneToLoad: Endlosmodus
   BackgroundImage: {fileID: 745396968}
   ProgressBar: {fileID: 1381748322}
