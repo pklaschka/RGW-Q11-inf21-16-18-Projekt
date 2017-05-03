@@ -6,7 +6,35 @@ public class AngriffController : MonoBehaviour {
     public GameObject fireball;
 
     public void SchwertAngriff() {
-        // TODO: Muss noch implementiert werden.
+		var playerObj = GameObject.FindGameObjectWithTag("Player");
+		var bc = playerObj.GetComponent<BoxCollider2D>();
+
+		var hits = new RaycastHit2D[8];
+		int c = bc.Raycast(Vector2.right, hits);
+
+		var alreadyHit = new List<GameObject>();
+
+		for (int i = 0; i < c; ++i) {
+			var hit = hits [i];
+
+			if (hit.distance > 1.5f) {
+				// Keinen Schaden hinzufügen, wenn der Gegner ausser Reichweite ist.
+				continue;
+			}
+
+			if (hit.collider && hit.collider.gameObject) {
+				var gobj = hit.collider.gameObject;
+
+				if (hit.collider.gameObject.CompareTag("Enemy")) {
+					var hp = gobj.GetComponent<HPController>();
+
+					if (hp != null && !alreadyHit.Contains(gobj)) {
+						// TODO: Schaden konfigurierbar machen
+						hp.SchadenZufuegen(10);
+					}
+				}
+			}
+		}
     }
 
     private GameObject ProjektilFeuern(GameObject prefab, float abstand = 2.5f) {

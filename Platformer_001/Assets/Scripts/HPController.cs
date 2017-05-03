@@ -26,7 +26,7 @@ public class HPController : MonoBehaviour {
 	}
 		
 	private void Anzeigen() {
-		hpAnzeige.HPSetzen(hp);
+		if (hpAnzeige != null) hpAnzeige.HPSetzen(hp);
 	}
 
 	public void SchadenZufuegen(int schaden) {
