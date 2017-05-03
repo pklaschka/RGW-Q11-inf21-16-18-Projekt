@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 61798885987470446}
   - component: {fileID: 50861755151374014}
   - component: {fileID: 114799338532626626}
+  - component: {fileID: 114457746276169704}
   m_Layer: 2
   m_Name: Schleim
   m_TagString: Enemy
@@ -257,6 +258,30 @@ BoxCollider2D:
   m_Offset: {x: 0.025565704, y: -0.00064333284}
   serializedVersion: 2
   m_Size: {x: 0.38317698, y: 0.15685801}
+--- !u!114 &114457746276169704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660809210920558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2145912209ceed54a836f55a6431ad43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 30
+  maxHP: 30
+  schadenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  todEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  hpAnzeige: {fileID: 0}
 --- !u!114 &114799338532626626
 MonoBehaviour:
   m_ObjectHideFlags: 1
