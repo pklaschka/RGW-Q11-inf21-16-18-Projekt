@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 61798885987470446}
   - component: {fileID: 50861755151374014}
   - component: {fileID: 114799338532626626}
+  - component: {fileID: 95437354869880092}
   m_Layer: 2
   m_Name: Schleim
   m_TagString: Enemy
@@ -257,6 +258,23 @@ BoxCollider2D:
   m_Offset: {x: 0.025565704, y: -0.00064333284}
   serializedVersion: 2
   m_Size: {x: 0.38317698, y: 0.15685801}
+--- !u!95 &95437354869880092
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660809210920558}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4085feb03ff46af40ba4590460bd11fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114799338532626626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,6 +289,7 @@ MonoBehaviour:
   walkerObject: {fileID: 1660809210920558}
   speed: 10.39
   radiusCollider: 3.66
+  walking: 1
 --- !u!212 &212429985531617612
 SpriteRenderer:
   m_ObjectHideFlags: 1
