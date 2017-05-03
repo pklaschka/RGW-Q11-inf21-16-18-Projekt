@@ -94,9 +94,9 @@ public class Endlosmodus : MonoBehaviour {
 					}
 				}
 			}
-			if (size >= 7) {
-				Instantiate(crocodile, new Vector3(lastX, height + 1, 0), new Quaternion());
-			}
+			if (size >= 7 && Random.value > .5f) {
+					Instantiate (crocodile, new Vector3 (lastX, height + 1, 0), new Quaternion ());
+				}
 		} 
 	}
 
