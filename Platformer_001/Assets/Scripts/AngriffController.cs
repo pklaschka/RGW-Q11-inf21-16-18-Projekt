@@ -17,7 +17,7 @@ public class AngriffController : MonoBehaviour {
 		for (int i = 0; i < c; ++i) {
 			var hit = hits [i];
 
-			if (hit.distance > 1.5f) {
+			if (hit.distance > 4.0f) {
 				// Keinen Schaden hinzufügen, wenn der Gegner ausser Reichweite ist.
 				continue;
 			}
