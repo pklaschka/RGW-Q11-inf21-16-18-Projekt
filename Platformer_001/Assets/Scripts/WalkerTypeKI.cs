@@ -38,13 +38,13 @@ public class WalkerTypeKI : MonoBehaviour {
 			d = d * -1;
 			//print ("direction Changed");
 		}
-
+		rotating = false;
 		Walk(d);
 	}
 
 	public void Walk(int direction){
 		walker.velocity = new Vector2 ((direction * speed), walker.velocity.y);
-		rotating = false;
+		//rotating = false;
 		float yRotation = (direction == 1f) ? 0 : 180f;
 		transform.eulerAngles = new Vector3 (0, yRotation);
 		rotating = true;
