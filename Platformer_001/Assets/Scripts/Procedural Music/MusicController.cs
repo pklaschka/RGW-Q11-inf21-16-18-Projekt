@@ -12,9 +12,17 @@ public class MusicController : MonoBehaviour {
 	// Computational Attributes
 	private int lastBar = 0;
 
+	void Awake() {
+		DontDestroyOnLoad(this);
+
+		if (FindObjectsOfType(GetType()).Length > 1)
+		{
+			Destroy(gameObject);
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad (transform.gameObject);
 		tones = new GameObject[] {
 			transform.Find("l1").gameObject,
 			transform.Find("l2").gameObject,
