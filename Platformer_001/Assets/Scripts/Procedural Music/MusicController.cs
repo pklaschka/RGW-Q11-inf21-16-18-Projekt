@@ -11,6 +11,7 @@ public class MusicController : MonoBehaviour {
 
 	// Computational Attributes
 	private int lastBar = 0;
+	private int lastEight = 0;
 
 	void Awake() {
 		DontDestroyOnLoad(this);
@@ -46,19 +47,58 @@ public class MusicController : MonoBehaviour {
 		ticks += Time.deltaTime;
 
 		var currentBar = Mathf.FloorToInt(ticks * beatsPerMinute / (quartersPerBar * 60f));
+		var currentEight = Mathf.FloorToInt (/*2 **/ ticks * beatsPerMinute / 60f);
+		while (currentEight > quartersPerBar) {
+			currentEight -= quartersPerBar;
+		}
 
+		print (lastEight);
+		if (currentEight != this.lastEight) {
+			deactivateTones ();
+			this.lastEight = currentEight;
+
+			playTone (Random.Range(1, 11));
+			//print("Bar: " + currentBar + "/" + currentEight);
+		}
+		print (lastEight);
+
+		// Change Chord after Bar:
 		if (currentBar != lastBar) {
 			lastBar = currentBar;
 
-			print("Bar: " + currentBar);
 			playChord (currentBar);
 		}
 	}
 
-	void playChord(int number) {
-		while (number > 7) {
-			number -= 7;
+	void playTone(int number) {
+		if (7 + number < tones.Length) {
+			tones [7 + number].SetActive (true);
 		}
+	}
+
+	void playChord(int number) {
+		while (number > 4) {
+			number -= 4;
+		}
+
+		switch (number) {
+		default:
+			number = 1;
+			break;
+		case 1:
+			number = 1;
+			break;
+		case 2:
+			number = 5;
+			break;
+		case 3:
+			number = 6;
+			break;
+		case 4:
+			number = 4;
+			break;
+		}
+
 		deactivateAll();
 
 		tones [number - 1].SetActive (true);
@@ -69,6 +109,12 @@ public class MusicController : MonoBehaviour {
 	void deactivateAll() {
 		foreach (var tone in tones) {
 			tone.SetActive (false);
+		}
+	}
+
+	void deactivateTones() {
+		for (int i = 6; i < tones.Length; i++) {
+			tones [i].SetActive (false);
 		}
 	}
 }
