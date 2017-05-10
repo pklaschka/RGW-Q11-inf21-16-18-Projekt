@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114547493998068388}
   - component: {fileID: 114562576783557202}
   - component: {fileID: 114657093561434764}
+  - component: {fileID: 114194264613072214}
   m_Layer: 0
   m_Name: Spieler
   m_TagString: Player
@@ -408,7 +409,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   jumpForce: 7
+  playerScale: 0.8
   richtung: 1
+--- !u!114 &114194264613072214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519671532131534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a862a336039ad4f83470979ff2ed06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114547493998068388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,6 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leben: 3
+  gameOverName: Game_Over_Screen
 --- !u!114 &114657093561434764
 MonoBehaviour:
   m_ObjectHideFlags: 1
