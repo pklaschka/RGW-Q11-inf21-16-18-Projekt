@@ -8,9 +8,10 @@ public class AngriffController : MonoBehaviour {
     public void SchwertAngriff() {
 		var playerObj = GameObject.FindGameObjectWithTag("Player");
 		var bc = playerObj.GetComponent<BoxCollider2D>();
+		var pmc = playerObj.GetComponent<PlayerMovementController>();
 
 		var hits = new RaycastHit2D[8];
-		int c = bc.Raycast(Vector2.right, hits);
+		int c = bc.Raycast(pmc.richtung == Richtung.RECHTS ? Vector2.right : Vector2.left, hits);
 
 		var alreadyHit = new List<GameObject>();
 
