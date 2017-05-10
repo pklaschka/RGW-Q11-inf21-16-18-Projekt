@@ -24,6 +24,12 @@ public class Feuerball : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+		if (SchadenAdapter.IstGegner(collision.gameObject)) {
+			SchadenAdapter.SchadenZufuegen(collision.gameObject, 10);
+			Destroy(gameObject);
+			return;
+		}
+
         // Wenn wir ein statisches Objekt (unbewegbare Objekte wie Tiles) treffen, erstellen
         // wir für gute Ästhetik ein Partikelsystem.
         if (wandpartikel != null && collision.contacts.Length > 0 && collision.gameObject.isStatic) {
@@ -46,9 +52,7 @@ public class Feuerball : MonoBehaviour {
             // Wir erstellen das Partikelsystem mit der gesammelten Information.
             Instantiate(wandpartikel, new Vector3(m.x, m.y, 0.0f), rot);
         }
-
-        // TODO: Betroffenem GameObject Schaden zufügen, wenn möglich
-
+			
         Destroy(gameObject);
     }
 }

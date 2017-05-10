@@ -13,8 +13,6 @@ public class AngriffController : MonoBehaviour {
 		var hits = new RaycastHit2D[8];
 		int c = bc.Raycast(pmc.richtung == Richtung.RECHTS ? Vector2.right : Vector2.left, hits);
 
-		var alreadyHit = new List<GameObject>();
-
 		for (int i = 0; i < c; ++i) {
 			var hit = hits [i];
 
@@ -26,13 +24,8 @@ public class AngriffController : MonoBehaviour {
 			if (hit.collider && hit.collider.gameObject) {
 				var gobj = hit.collider.gameObject;
 
-				if (hit.collider.gameObject.CompareTag("Enemy")) {
-					var hp = gobj.GetComponent<HPController>();
-
-					if (hp != null && !alreadyHit.Contains(gobj)) {
-						// TODO: Schaden konfigurierbar machen
-						hp.SchadenZufuegen(10);
-					}
+				if (SchadenAdapter.IstGegner(gobj)) {
+					SchadenAdapter.SchadenZufuegen(gobj, 10);
 				}
 			}
 		}

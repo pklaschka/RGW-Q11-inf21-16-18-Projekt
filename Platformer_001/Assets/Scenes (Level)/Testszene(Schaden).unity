@@ -338,7 +338,7 @@ Prefab:
         type: 2}
       propertyPath: anfangsItem
       value: 
-      objectReference: {fileID: 1091001140902924, guid: 28922d20731747949b66a7fa8c27aad8,
+      objectReference: {fileID: 1478482565605924, guid: 171d0834e9496504eb4bc0b20df186eb,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
