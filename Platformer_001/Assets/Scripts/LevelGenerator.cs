@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+
+#if UNITY_EDITOR
+	using UnityEditor;
+#endif
 
 public class LevelGenerator : MonoBehaviour {
     [Serializable]
@@ -135,14 +138,16 @@ public class LevelGenerator : MonoBehaviour {
 				light.transform.rotation = Quaternion.LookRotation (config.beleuchtung.sonnenlichtRichtung);
 			}
 
-			if (config.hintergrund != null) {
-				var backgroundTex = AssetDatabase.LoadAssetAtPath(config.hintergrund, typeof(Sprite));
+			#if UNITY_EDITOR
+				if (config.hintergrund != null) {
+					var backgroundTex = AssetDatabase.LoadAssetAtPath(config.hintergrund, typeof(Sprite));
 
-				if (backgroundLeft != null && backgroundRight != null) {
-					backgroundLeft.sprite = (Sprite) backgroundTex;
-					backgroundRight.sprite = (Sprite) backgroundTex;
+					if (backgroundLeft != null && backgroundRight != null) {
+						backgroundLeft.sprite = (Sprite) backgroundTex;
+						backgroundRight.sprite = (Sprite) backgroundTex;
+					}
 				}
-			}
+			#endif
 		}
 	}
 
