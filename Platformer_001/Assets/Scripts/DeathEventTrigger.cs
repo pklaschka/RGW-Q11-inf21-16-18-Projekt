@@ -19,7 +19,7 @@ public class DeathEventTrigger : MonoBehaviour {
 	{
 		if (c.CompareTag ("Player")) 
 		{
-			var Hp = c.gameObject.GetComponent<SpielerHP> ();
+			var Hp = c.gameObject.GetComponent<SpielerHP>();
 			Hp.Umbringen ();
 		}
 	}

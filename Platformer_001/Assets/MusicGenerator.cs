@@ -9,18 +9,20 @@ public class MusicGenerator : MonoBehaviour {
 	void Start () {
 		DontDestroyOnLoad (transform.gameObject);
 		r = new System.Random();
+		calcGain = gain;
 	}
 
 	public double frequency = 440;
 
 	[Range(0.01f,5f)]
 	public double gain = 1;
+	private double calcGain;
 
 	private double increment;
 	private double phase;
 	private double sampling_frequency = 48000;
 
-	public double ticksPerBar = 100;
+	public double ticksPerBar = 50;
 	public double ticks;
 	private bool noteChanged = true;
 
@@ -52,6 +54,7 @@ public class MusicGenerator : MonoBehaviour {
 			print (notes[nextIndex]);
 			frequency = notes [nextIndex];
 			noteChanged = !noteChanged;
+			calcGain = r.Next(0, 6) != 0 ? gain : 0;
 		}
 	}
 
@@ -63,7 +66,7 @@ public class MusicGenerator : MonoBehaviour {
 			for (var i = 0; i < data.Length; i += channels) {
 				phase += increment;
 				// this is where we copy audio data to make them “available” to Unity
-				data [i] = (float)(gain * Math.Sqrt (phase));
+				data [i] = (float)(calcGain * Math.Sin (phase));
 				// if we have stereo, we copy the mono data to each channel
 				if (channels == 2)
 					data [i + 1] = data [i];
