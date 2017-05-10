@@ -135,6 +135,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: selbstZerstoerenBeiTod
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
   m_IsPrefabParent: 0

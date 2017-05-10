@@ -15,6 +15,8 @@ public class HPController : MonoBehaviour {
     public EventTrigger.TriggerEvent schadenEvent;
     public EventTrigger.TriggerEvent todEvent;
 
+	public bool selbstZerstoerenBeiTod;
+
     public HUDHPAnzeige hpAnzeige;
 
     void Start() {
@@ -23,6 +25,8 @@ public class HPController : MonoBehaviour {
 
 	public virtual void OnSterben() {
 		todEvent.Invoke(null);
+
+		if (selbstZerstoerenBeiTod) Destroy(gameObject);
 	}
 		
 	private void Anzeigen() {
