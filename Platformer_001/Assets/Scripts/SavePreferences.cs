@@ -14,6 +14,6 @@ public class SavePreferences : MonoBehaviour {
 		/*PlayerPrefs.SetFloat ("loudness", 0.5f);
 		PlayerPrefs.Save ();
 
-		PlayerPrefs.GetFloat ("loudness");
+		PlayerPrefs.GetFloat ("loudness");*/
 	}
 }
