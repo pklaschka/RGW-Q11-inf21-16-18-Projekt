@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4310989447642624}
   - component: {fileID: 212429985531617612}
   m_Layer: 0
-  m_Name: Croc-leg (2)
+  m_Name: Croc-leg hinten rechts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4388638330566022}
   - component: {fileID: 212554850481511844}
   m_Layer: 0
-  m_Name: Croc-leg (3)
+  m_Name: Croc-leg vorne links
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4755421535568808}
   - component: {fileID: 212516092290585988}
   m_Layer: 0
-  m_Name: Croc-leg (1)
+  m_Name: Croc-leg vorne rechts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,10 +100,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4433178920058282}
   - component: {fileID: 212819623109903920}
-  - component: {fileID: 61798885987470446}
   - component: {fileID: 50861755151374014}
   - component: {fileID: 114799338532626626}
   - component: {fileID: 95437354869880092}
+  - component: {fileID: 68332099468644012}
+  - component: {fileID: 61453681127268766}
   m_Layer: 2
   m_Name: Schleim
   m_TagString: Enemy
@@ -121,7 +122,7 @@ GameObject:
   - component: {fileID: 4523297829167322}
   - component: {fileID: 212728992120257730}
   m_Layer: 0
-  m_Name: Croc-leg
+  m_Name: Croc-leg hinten links
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1660809210920558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.548795, y: 5.3151927, z: 0}
+  m_LocalPosition: {x: -2215.6655, y: -855.1838, z: 0}
   m_LocalScale: {x: 16, y: 16, z: 1}
   m_Children:
   - {fileID: 4388638330566022}
@@ -244,7 +245,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &61798885987470446
+--- !u!61 &61453681127268766
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -255,9 +256,38 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.025565704, y: -0.00064333284}
+  m_Offset: {x: 0.0027770996, y: -0.07791519}
   serializedVersion: 2
-  m_Size: {x: 0.38317698, y: 0.15685801}
+  m_Size: {x: 0.1644472, y: 0.00073981285}
+--- !u!68 &68332099468644012
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660809210920558}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 591257a352b015541ab50c80d440835e, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -0.1403526, y: 0.09125522}
+  - {x: -0.09036988, y: 0.09282604}
+  - {x: -0.08345801, y: 0.07648879}
+  - {x: -0.11676073, y: 0.059523255}
+  - {x: -0.09225488, y: 0.01742348}
+  - {x: 0.006176889, y: 0.035638034}
+  - {x: 0.08896172, y: 0.01620531}
+  - {x: 0.14897543, y: 0.04310122}
+  - {x: 0.23164368, y: -0.015174866}
+  - {x: 0.18848479, y: -0.038268834}
+  - {x: 0.076637626, y: -0.038268805}
+  - {x: 0.077323794, y: -0.085529834}
+  - {x: -0.058367908, y: -0.084929496}
+  - {x: -0.07294941, y: -0.03552407}
+  - {x: -0.17244536, y: 0.017311662}
+  - {x: -0.14088106, y: 0.090046644}
 --- !u!95 &95437354869880092
 Animator:
   serializedVersion: 3
@@ -287,8 +317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerObject: {fileID: 1660809210920558}
-  speed: 10.39
-  radiusCollider: 3.66
+  speed: 6
+  radiusCollider: 3.86
   walking: 1
 --- !u!212 &212429985531617612
 SpriteRenderer:
