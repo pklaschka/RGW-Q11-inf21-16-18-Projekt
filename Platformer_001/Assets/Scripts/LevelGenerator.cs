@@ -7,7 +7,8 @@ public class LevelGenerator : MonoBehaviour {
     [Serializable]
     public enum LevelObjectType {
         Tile,
-        Item
+        Item,
+		Enemy
     };
 
     [Serializable]
@@ -49,6 +50,7 @@ public class LevelGenerator : MonoBehaviour {
 
     private readonly Dictionary<int, ObjectDef> idTileDict = new Dictionary<int, ObjectDef>();
     private readonly Dictionary<int, ObjectDef> idItemDict = new Dictionary<int, ObjectDef>();
+	private readonly Dictionary<int, ObjectDef> idEnemyDict = new Dictionary<int, ObjectDef>();
 
     private readonly Dictionary<LevelObjectType, GameObject> prefabDefaultDict = new Dictionary<LevelObjectType, GameObject>();
 
@@ -57,6 +59,7 @@ public class LevelGenerator : MonoBehaviour {
     public LevelGenerator() {
         idToType[0x00] = LevelObjectType.Tile;
         idToType[0xFF] = LevelObjectType.Item;
+		idToType[0x2F] = LevelObjectType.Enemy;
     }
 
 	void Start() {
@@ -74,6 +77,11 @@ public class LevelGenerator : MonoBehaviour {
                 case LevelObjectType.Item:
                     idItemDict[cts.colour.g] = def;
                     break;
+
+				case LevelObjectType.Enemy:
+					idEnemyDict [cts.colour.g] = def;
+					break;
+
 
                 default:
                     break;
@@ -116,6 +124,10 @@ public class LevelGenerator : MonoBehaviour {
         case 0xFF:
             CommonDecode(idItemDict, pixel.g, (def, id) => SpawnItemAt(def, id, x, y));
             break;
+
+		case 0x2F:
+			CommonDecode(idEnemyDict, pixel.g, (def, id) => SpawnEnemyAt(def, id, x, y));
+			break;
 
 		case 0x7F:
 			spawnPoint.Set(x, y + 1.0f);
@@ -202,6 +214,16 @@ public class LevelGenerator : MonoBehaviour {
 
         return obj;
     }
+
+	private GameObject SpawnEnemyAt(ObjectDef objDef, int id, int x, int y){
+		if (objDef.prefab == null) return null;
+		var obj = Instantiate(objDef.prefab, new Vector2(x, y), Quaternion.identity, transform);
+
+		print ("Isch bin dein Enemy" + obj);
+
+		return obj;
+
+	}
 
 	public void NeuGenerieren() {
 		EmptyMap();
