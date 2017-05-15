@@ -23,23 +23,48 @@ public class WalkerTypeKI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		var links = Physics2D.Raycast (gameObject.transform.position, new Vector2(-1.0f, -0.1f),  4.0f);
-		var rechts = Physics2D.Raycast (gameObject.transform.position, new Vector2(1.0f, -0.1f), 4.0f);
-		var linksUnten = Physics2D.Raycast (transform.position, new Vector2(-1.0f, -0.75f), 4.0f);
-		var rechtsUnten = Physics2D.Raycast (transform.position, new Vector2(1.0f, -0.75f), 4.0f);
+		if (d == 1) {
+			//var links = Physics2D.Raycast (gameObject.transform.position, new Vector2 (-1.0f, -0.1f), 4.0f);
+			//var linksUnten = Physics2D.Raycast (transform.position, new Vector2 (-1.0f, -0.75f), 4.0f);
+			var rechts = Physics2D.Raycast (gameObject.transform.position, new Vector2(1.0f, -0.1f), 4.0f);
+			var rechtsUnten = Physics2D.Raycast (transform.position, new Vector2(1.0f, -0.75f), 4.0f);
+			//if ((links.collider != null && links.distance < radiusCollider) || (linksUnten.collider == null)) { 
+			if ((rechts.collider != null && rechts.distance < radiusCollider) || (rechtsUnten.collider == null)) {
+				d = d * -1;
+				Walk (d);
+				rotating = false;
+			} else {
+				Walk (d);
+			}
+			}
+		else {
+			//var rechts = Physics2D.Raycast (gameObject.transform.position, new Vector2(1.0f, -0.1f), 4.0f);
+			//var rechtsUnten = Physics2D.Raycast (transform.position, new Vector2(1.0f, -0.75f), 4.0f);
+			var links = Physics2D.Raycast (gameObject.transform.position, new Vector2 (-1.0f, -0.1f), 4.0f);
+			var linksUnten = Physics2D.Raycast (transform.position, new Vector2 (-1.0f, -0.75f), 4.0f);
+			if ((links.collider != null && links.distance < radiusCollider) || (linksUnten.collider == null)) { 
+			//if ((rechts.collider != null && rechts.distance < radiusCollider) || (rechtsUnten.collider == null)) {
+				d = d * -1;
+				Walk (d);
+				rotating = false;
+			} else {
+				Walk (d);
+			}
+		}
 		//Debug.DrawRay (gameObject.transform.position, Vector2.left * 8.0f, Color.red, 0.1f, false);
 		//Debug.DrawRay (gameObject.transform.position, Vector2.right * 8.0f, Color.green, 0.1f, false);
 
 		//print (links.distance);
 
-		if ((links.collider != null && links.distance < radiusCollider) || (rechts.collider != null && rechts.distance < radiusCollider) || 
-			(linksUnten.collider == null) || (rechtsUnten.collider == null)) {
+		//if ((links.collider != null && links.distance < radiusCollider) || (rechts.collider != null && rechts.distance < radiusCollider) || 
+		//	(linksUnten.collider == null) || (rechtsUnten.collider == null)) {
 			//print (links.distance + " " + rechts.distance);
-			d = d * -1;
+			//d = d * -1;
 			//print ("direction Changed");
-		}
-		rotating = false;
-		Walk(d);
+		//rotating = false;
+		//Walk(d);
+		//rotating = false;
+
 	}
 
 	public void Walk(int direction){
