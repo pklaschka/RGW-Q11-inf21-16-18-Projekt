@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerObject: {fileID: 1660809210920558}
-  speed: 6
+  speed: 8
   radiusCollider: 3.86
   walking: 1
 --- !u!212 &212429985531617612
