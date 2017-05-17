@@ -7,7 +7,7 @@ public class HighscoreAbrufen : MonoBehaviour {
 
 	int score;
 	int highscore;
-	GameObject Anzeige;
+	Text Anzeige;
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +15,9 @@ public class HighscoreAbrufen : MonoBehaviour {
 		highscore = PlayerPrefs.GetInt("maxEndlosweite");
 		Anzeige = GetComponent<Text>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		Anzeige.text = "ABC";
+		Anzeige.text = "" + PlayerPrefs.GetInt("maxEndlosweite");
 	}
 }

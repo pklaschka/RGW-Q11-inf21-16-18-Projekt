@@ -16,11 +16,15 @@ public class PlayerMovementController : MonoBehaviour {
     //private BoxCollider2D col;
     public Richtung richtung = Richtung.RECHTS;
 
+	Highscore Highscore;
+	public GameObject player;
+
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		//col = GetComponent<BoxCollider2D>();
         doubleJump = false;
+		Highscore = GetComponent<Highscore> ();
     }
 
     public void Springen() {
@@ -65,5 +69,7 @@ public class PlayerMovementController : MonoBehaviour {
         // x ? a : b ist if als Ausdruck, auf Deutsch heißt das: bedingung ? wert wenn true : wert wenn false.
         var xScale = richtung == Richtung.LINKS ? -1f : 1f;
         transform.localScale = new Vector3(xScale, 1, 1) * playerScale;
-    }
+    
+		Highscore.saveLength (Mathf.RoundToInt (player.transform.position.x));
+	}
 }
