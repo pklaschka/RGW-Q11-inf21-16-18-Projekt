@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178fa22e5bd970a4589abe5208902dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMap: {fileID: 2800000, guid: f7c6fb01eb0097a448a5c2600dd7434b, type: 3}
+  levelMap: {fileID: 2800000, guid: f67de0eda007c4f4b9b049627ebfc0e2, type: 3}
   levelConfig: {fileID: 4900000, guid: 92244097c2d9bb34cb7386df95411f29, type: 3}
   backgroundLeft: {fileID: 653868773}
   backgroundRight: {fileID: 1768509499}
@@ -430,6 +430,8 @@ MonoBehaviour:
     prefab: {fileID: 1792102471104630, guid: c7876e361f641a843950a49414b9a42a, type: 2}
   - type: 1
     prefab: {fileID: 1967912431008734, guid: 4ab129c002285f14f9c17592c97c6f5e, type: 2}
+  backgroundImages:
+  - {fileID: 21300000, guid: 39b71b37258efbc4fa8352f20d1ce00c, type: 3}
   tileSize: 2
   spawnPoint: {x: 0, y: 0}
 --- !u!4 &993892591
@@ -548,7 +550,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2123089775}
   offset: {x: 0, y: 0, z: 0}
-  multiplier: 0
 --- !u!1 &1506076118
 GameObject:
   m_ObjectHideFlags: 0

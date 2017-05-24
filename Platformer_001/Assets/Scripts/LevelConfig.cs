@@ -12,5 +12,5 @@ public struct LevelLighting {
 public struct LevelConfig {
 	public string name;
 	public LevelLighting beleuchtung;
-	public string hintergrund;
+	public int hintergrund;
 }
