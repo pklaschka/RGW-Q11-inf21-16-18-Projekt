@@ -4,53 +4,37 @@ using UnityEngine;
 
 public class JumperTypeKI : MonoBehaviour {
 	public float speed;
-	public float jumpForce;
-	public float highJumpForce;
-	private Rigidbody2D slime;
-	private BoxCollider2D slimeCollider;
+	private Rigidbody2D garg;
+	private BoxCollider2D gargCollider;
+	private int d = -1;
+	private bool rotating = false;
 	// Use this for initialization
 	void Start () {
-		slime = GetComponent<Rigidbody2D>();
-		slimeCollider = GetComponent<BoxCollider2D>();
+		garg = GetComponent<Rigidbody2D>();
+		gargCollider = GetComponent<BoxCollider2D>();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		bool JumpReady = slime.velocity.y < 0.001f && slime.velocity.y > -0.001f && slime.velocity.x < 0.001f && slime.velocity.x > -0.001f;
-		if (JumpReady) {
-			float jumpOrder = Random.Range(0,4);
-			if(jumpOrder < 1f){
-				SpringenVorwaerts();
+		var runter = Physics2D.Raycast (gameObject.transform.position, new Vector2 (0f, -1f), 6.0f);
+		var linksRunter = Physics2D.Raycast (gameObject.transform.position, new Vector2 (-1f, -1f), 8.0f);
+		var rechtsRunter = Physics2D.Raycast (gameObject.transform.position, new Vector2 (1f, -1f), 8.0f);
+		if(runter.collider == null){
+			if (linksRunter.collider == null) {
+				FlyR ();
+			} else {
+				FlyL
 			}
-			else{
-				if (jumpOrder < 2f) {
-					SpringenRueckwaerts ();
-				} 
-				else {
-					if (jumpOrder < 3f) {
-						SpringenHochRueckwaerts ();
-					} 
-					else {
-						SpringenHochVorwaerts();
-						}
-					}
-				}
-		} 
+		}
 	}
 
-	public void SpringenVorwaerts() {
-		slime.AddForce(new Vector2(speed, jumpForce), ForceMode2D.Impulse);
+	void FlyR()
+	{
+		garg.velocity = new Vector2 ((speed), 0f);
 	}
 
-	public void SpringenRueckwaerts(){
-		slime.AddForce(new Vector2(-speed, jumpForce), ForceMode2D.Impulse);
-	}
-
-	public void SpringenHochVorwaerts(){
-		slime.AddForce(new Vector2((speed/2), highJumpForce), ForceMode2D.Impulse);
-	}
-
-	public void SpringenHochRueckwaerts(){
-		slime.AddForce(new Vector2((-(speed/2)), highJumpForce), ForceMode2D.Impulse);
+	void FlyL()
+	{
+		garg.velocity = new Vector2 ((-speed), 0f);
 	}
 }
