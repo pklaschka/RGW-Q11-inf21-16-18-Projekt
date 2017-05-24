@@ -668,6 +668,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114562576783557202, guid: 1b2499aef91c52844b533d1587e0fa93,
+        type: 2}
+      propertyPath: gameOverName
+      value: Game_Over_Screen_Kampagne
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
   m_IsPrefabParent: 0
