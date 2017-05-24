@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-#if UNITY_EDITOR
-	using UnityEditor;
-#endif
-
 public class LevelGenerator : MonoBehaviour {
     [Serializable]
     public enum LevelObjectType {
@@ -41,6 +37,7 @@ public class LevelGenerator : MonoBehaviour {
     [Header("Zuordnungen")]
     public ColourToObject[] colourObjectMap;
     public PrefabDefault[] defaultPrefabs;
+	public Sprite[] backgroundImages;
 
     [Header("Sonstige Parameter")]
     [Range(1, 20)]
@@ -128,7 +125,7 @@ public class LevelGenerator : MonoBehaviour {
 
 	private void LoadConfig() {
 		if (levelConfig != null) {
-			var config = JsonUtility.FromJson<LevelConfig> (levelConfig.text);
+			var config = JsonUtility.FromJson<LevelConfig>(levelConfig.text);
 			print ("Levelname ist: " + config.name);
 
 			if (config.beleuchtung.sonnenlicht) {
@@ -137,17 +134,18 @@ public class LevelGenerator : MonoBehaviour {
 				light.type = LightType.Directional;
 				light.transform.rotation = Quaternion.LookRotation (config.beleuchtung.sonnenlichtRichtung);
 			}
-
-			#if UNITY_EDITOR
-				if (config.hintergrund != null) {
-					var backgroundTex = AssetDatabase.LoadAssetAtPath(config.hintergrund, typeof(Sprite));
+				
+			if (config.hintergrund != null) {
+				int index = config.hintergrund;
+				if (index >= 0 && index < backgroundImages.Length) {
+					var backgroundTex = backgroundImages[index];
 
 					if (backgroundLeft != null && backgroundRight != null) {
 						backgroundLeft.sprite = (Sprite) backgroundTex;
 						backgroundRight.sprite = (Sprite) backgroundTex;
 					}
 				}
-			#endif
+			}
 		}
 	}
 
