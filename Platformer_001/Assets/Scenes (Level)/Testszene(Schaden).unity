@@ -103,6 +103,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4433178920058282, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.7267473
@@ -139,6 +144,16 @@ Prefab:
         type: 2}
       propertyPath: selbstZerstoerenBeiTod
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
