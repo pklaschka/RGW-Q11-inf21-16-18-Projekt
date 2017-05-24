@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f69fb25dbf029542b0e2c55abd312cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameSceneToLoad: Hauptmenue
+  NameSceneToLoad: Please Fill In
   BackgroundImage: {fileID: 0}
   ProgressBar: {fileID: 0}
 --- !u!114 &114843708049498216
