@@ -148,16 +148,59 @@ Prefab:
     - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
         type: 2}
       propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
         type: 2}
       propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 608750050}
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Spawnen
+      objectReference: {fileID: 0}
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114689621667916028, guid: 69447e927c1931b44b083bcc73254aff,
+        type: 2}
+      propertyPath: todEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 608750049}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &608750048 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1660809210920558, guid: 69447e927c1931b44b083bcc73254aff,
+    type: 2}
+  m_PrefabInternal: {fileID: 608750047}
+--- !u!4 &608750049 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4433178920058282, guid: 69447e927c1931b44b083bcc73254aff,
+    type: 2}
+  m_PrefabInternal: {fileID: 608750047}
+--- !u!114 &608750050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 608750048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3e7cd7278d40e438deb62361567e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  systemPrefab: {fileID: 1134144580882956, guid: 0f74e3b85f205734ca0a44ab02e7343d,
+    type: 2}
 --- !u!1 &1103827471
 GameObject:
   m_ObjectHideFlags: 0
