@@ -1291,6 +1291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f69fb25dbf029542b0e2c55abd312cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameSceneToLoad: Endlosmodus
+  NameSceneToLoad: Kampagne
   BackgroundImage: {fileID: 745396968}
   ProgressBar: {fileID: 1381748322}
