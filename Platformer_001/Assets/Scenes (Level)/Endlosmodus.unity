@@ -413,7 +413,8 @@ Prefab:
         type: 2}
       propertyPath: anfangsItem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1091001140902924, guid: 28922d20731747949b66a7fa8c27aad8,
+        type: 2}
     - target: {fileID: 1519671532131534, guid: 1b2499aef91c52844b533d1587e0fa93, type: 2}
       propertyPath: m_IsActive
       value: 1
