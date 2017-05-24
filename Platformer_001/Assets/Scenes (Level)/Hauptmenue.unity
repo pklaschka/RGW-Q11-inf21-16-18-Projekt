@@ -682,23 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b19cf6c4959c48f8accd8fd937df8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 660
-  gain: 0.05
-  calcGain: 0
-  increment: 0
-  phase: 0
-  sampling_frequency: 48000
-  ticksPerBar: 40
-  ticks: 0
-  noteChanged: 1
-  notes:
-  - 261.63
-  - 293.66
-  - 329.63
-  - 349.23
-  - 392
-  - 440
-  - 493.88
 --- !u!4 &554345936
 Transform:
   m_ObjectHideFlags: 0
@@ -796,23 +779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b19cf6c4959c48f8accd8fd937df8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 440
-  gain: 0.05
-  calcGain: 0
-  increment: 0
-  phase: 0
-  sampling_frequency: 48000
-  ticksPerBar: 40
-  ticks: 0
-  noteChanged: 1
-  notes:
-  - 261.63
-  - 293.66
-  - 329.63
-  - 349.23
-  - 392
-  - 440
-  - 493.88
 --- !u!4 &576964512
 Transform:
   m_ObjectHideFlags: 0

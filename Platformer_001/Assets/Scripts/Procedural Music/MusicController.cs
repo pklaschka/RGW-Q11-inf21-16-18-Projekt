@@ -40,6 +40,15 @@ public class MusicController : MonoBehaviour {
 			transform.Find("h6").gameObject,
 			transform.Find("h7").gameObject
 		};
+
+		StartCoroutine (volumeUpdate());
+	}
+
+	IEnumerator volumeUpdate() {
+		while (true) {
+			setGain (PlayerPrefs.GetFloat("options_volume_music", 0.1f));
+			yield return new WaitForSeconds (0.5f);
+		}
 	}
 	
 	// Update is called once per frame
@@ -115,6 +124,12 @@ public class MusicController : MonoBehaviour {
 	void deactivateTones() {
 		for (int i = 6; i < tones.Length; i++) {
 			tones [i].SetActive (false);
+		}
+	}
+
+	public void setGain(float gain) {
+		foreach (var tone in tones) {
+			tone.GetComponent<Tone> ().gain = gain;
 		}
 	}
 }
