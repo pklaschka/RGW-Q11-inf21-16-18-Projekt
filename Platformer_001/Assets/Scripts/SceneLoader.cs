@@ -18,10 +18,9 @@ public class SceneLoader : MonoBehaviour {
 	}
 
 	public void LoadScene() {
+		print ("Loading scene...");
 		if (NameSceneToLoad != null && BackgroundImage != null && ProgressBar != null) {
 			BackgroundImage.GetComponent<Image>().enabled = true;
-
-			Scene sceneToLoad = SceneManager.GetSceneByName(NameSceneToLoad);
 
 			sceneLoading = true;
 			StartCoroutine(StartSceneLoad());
@@ -31,7 +30,7 @@ public class SceneLoader : MonoBehaviour {
 	}
 
 	public void LoadLastLevel() {
-		SceneManager.LoadScene("Testszene(LevelGenerator)");
+		SceneManager.LoadScene("Kampagne");
 	}
 
 	IEnumerator StartSceneLoad() {

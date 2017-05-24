@@ -28,11 +28,22 @@ public class LevelGenerator : MonoBehaviour {
         public LevelObjectType type;
         public GameObject prefab;
     };
+
+	[Serializable]
+	public struct Level
+	{
+		public Texture2D levelMap;
+		public TextAsset levelConfig;
+		public SpriteRenderer backgroundLeft, backgroundRight;
+	}
     
-    [Header("Essentielle Parameter")]
-    public Texture2D levelMap;
+    //[Header("Essentielle Parameter")]
+
+	public Texture2D levelMap;
 	public TextAsset levelConfig;
 	public SpriteRenderer backgroundLeft, backgroundRight;
+
+	public Level[] levels;
 
     [Header("Zuordnungen")]
     public ColourToObject[] colourObjectMap;
@@ -60,6 +71,18 @@ public class LevelGenerator : MonoBehaviour {
     }
 
 	void Start() {
+		int levelIndex = PlayerPrefs.GetInt ("level_current", 0);
+
+		if (levels.Length > levelIndex) {
+			print ("Loading level: " + levelIndex);
+			levelMap = levels [levelIndex].levelMap;
+			levelConfig = levels [levelIndex].levelConfig;
+			backgroundLeft = levels [levelIndex].backgroundLeft;
+			backgroundRight = levels [levelIndex].backgroundRight;
+		} else {
+			throw new Exception ("Zu Ladendes Level wurde nicht gefunden.");
+		}
+
         foreach (ColourToObject cts in colourObjectMap) {
             var def = new ObjectDef();
             def.sprite = cts.sprite;
@@ -135,7 +158,7 @@ public class LevelGenerator : MonoBehaviour {
 				light.transform.rotation = Quaternion.LookRotation (config.beleuchtung.sonnenlichtRichtung);
 			}
 				
-			if (config.hintergrund != null) {
+			//if (config.hintergrund != null) {
 				int index = config.hintergrund;
 				if (index >= 0 && index < backgroundImages.Length) {
 					var backgroundTex = backgroundImages[index];
@@ -145,7 +168,7 @@ public class LevelGenerator : MonoBehaviour {
 						backgroundRight.sprite = (Sprite) backgroundTex;
 					}
 				}
-			}
+			//}
 		}
 	}
 

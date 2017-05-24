@@ -468,7 +468,7 @@ PlayerSettings:
   cloudServicesEnabled:
     Build: 1
     UNet: 1
-  cloudProjectId: 77abc8a0-6ed9-44d9-893a-d1e28a824055
-  projectName: Platformer_001
+  cloudProjectId: 0806795a-24f4-4911-bfe3-c1ab64876ca9
+  projectName: Platformer
   organizationId: rgw
   cloudEnabled: 0
