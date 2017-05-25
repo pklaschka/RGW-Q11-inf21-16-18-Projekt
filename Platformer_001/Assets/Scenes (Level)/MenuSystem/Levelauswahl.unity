@@ -830,10 +830,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1595514498830140, guid: aaae8a054b8124035b794a6422a65bf4, type: 2}
-      propertyPath: m_Name
-      value: "Hauptmen\xFC"
-      objectReference: {fileID: 0}
     - target: {fileID: 114699629933620562, guid: aaae8a054b8124035b794a6422a65bf4,
         type: 2}
       propertyPath: BackgroundImage
@@ -844,15 +840,19 @@ Prefab:
       propertyPath: ProgressBar
       value: 
       objectReference: {fileID: 301847507}
-    - target: {fileID: 114951697316782418, guid: aaae8a054b8124035b794a6422a65bf4,
-        type: 2}
-      propertyPath: m_Text
-      value: "Hauptmen\xFC"
+    - target: {fileID: 1595514498830140, guid: aaae8a054b8124035b794a6422a65bf4, type: 2}
+      propertyPath: m_Name
+      value: "btnZur\xFCck"
       objectReference: {fileID: 0}
     - target: {fileID: 114699629933620562, guid: aaae8a054b8124035b794a6422a65bf4,
         type: 2}
       propertyPath: NameSceneToLoad
-      value: Hauptmenue
+      value: Spielen
+      objectReference: {fileID: 0}
+    - target: {fileID: 114951697316782418, guid: aaae8a054b8124035b794a6422a65bf4,
+        type: 2}
+      propertyPath: m_Text
+      value: "Zur\xFCck"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aaae8a054b8124035b794a6422a65bf4, type: 2}
