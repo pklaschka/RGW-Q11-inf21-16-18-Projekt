@@ -6,15 +6,6 @@ using UnityEngine.UI;
 public class Highscore : MonoBehaviour {
 	public Text liveAnzeige;
 
-	// Use this for initialization
-	void Start (){
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void saveLength(int length) {
 		if (liveAnzeige != null) {
 			liveAnzeige.text = "" + length;
