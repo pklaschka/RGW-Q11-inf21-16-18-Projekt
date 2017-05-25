@@ -6,24 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes (Level)/Hauptmenue.unity
-  - enabled: 0
-    path: Assets/Scenes (Level)/LevelLoaderTest.unity
-  - enabled: 0
-    path: "Assets/Scenes (Level)/Hauptmen\xFC.unity"
-  - enabled: 0
-    path: Assets/Scenes (Level)/Testszene(LevelGenerator).unity
+    path: Assets/Scenes (Level)/MenuSystem/Hauptmenue.unity
   - enabled: 1
-    path: Assets/Scenes (Level)/Spielen.unity
+    path: Assets/Scenes (Level)/MenuSystem/Spielen.unity
   - enabled: 1
-    path: Assets/Scenes (Level)/Optionen.unity
+    path: Assets/Scenes (Level)/MenuSystem/Optionen.unity
   - enabled: 1
     path: Assets/Scenes (Level)/Endlosmodus.unity
   - enabled: 1
-    path: Assets/Scenes (Level)/Game_Over_Screen.unity
+    path: Assets/Scenes (Level)/MenuSystem/Game_Over_Screen.unity
   - enabled: 1
-    path: Assets/Scenes (Level)/Levelauswahl.unity
+    path: Assets/Scenes (Level)/MenuSystem/Levelauswahl.unity
   - enabled: 1
     path: Assets/Scenes (Level)/Kampagne.unity
   - enabled: 1
-    path: Assets/Scenes (Level)/Game_Over_Screen_Kampagne.unity
+    path: Assets/Scenes (Level)/MenuSystem/Game_Over_Screen_Kampagne.unity
