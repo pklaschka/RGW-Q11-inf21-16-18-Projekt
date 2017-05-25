@@ -469,6 +469,9 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Build: 1
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   cloudProjectId: 0806795a-24f4-4911-bfe3-c1ab64876ca9
   projectName: Platformer
