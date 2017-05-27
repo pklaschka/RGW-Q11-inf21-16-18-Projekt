@@ -7,11 +7,8 @@ public class LebenController : MonoBehaviour {
 	public int leben;
 	public string gameOverName = "Game_Over_Screen";
 
-	public GameObject player;
-	private Highscore hs;
 	// Use this for initialization
 	void Start () {
-		hs = GetComponent<Highscore> ();
 	}
 	
 	// Update is called once per frame
@@ -23,8 +20,6 @@ public class LebenController : MonoBehaviour {
 	{
 		print ("Du bist Tod!");
 		SceneManager.LoadScene(gameOverName);
-
-		hs.saveLength (Mathf.RoundToInt(player.transform.position.x));
 	}
 
 	public void Sterben()
