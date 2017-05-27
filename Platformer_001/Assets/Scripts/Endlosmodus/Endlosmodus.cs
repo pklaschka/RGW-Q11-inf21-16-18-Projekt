@@ -18,6 +18,7 @@ public class Endlosmodus : MonoBehaviour {
 	int maxDown=-4;
 	[Range(0,1)]
 	float hazardChance=.5f;
+	float crocSpawnChance = .5f;
 	int lastX;
 	List<GameObject> spawnedTiles;
 	List<GameObject> spawnedTilesGround;
@@ -27,6 +28,8 @@ public class Endlosmodus : MonoBehaviour {
 	int height;
 	int blockArt = 1;
 	int counter = 25;
+	bool crocSpawned;
+	int lastHeight;
 
 	void Start () {
 		spawnedTiles = new List<GameObject>();
@@ -64,22 +67,22 @@ public class Endlosmodus : MonoBehaviour {
 	void Spawn() {
 		counter--;
 		if (hazardChance > Random.value && !isHazard) {
-			int size = Random.Range(2, maxHazardSize);
+			int size = Random.Range (2, maxHazardSize);
 			for (int i = 1; i <= size; i++) {
 				lastX += 2;
 				isHazard = true;
 			}
 		} else {
 			int size = Random.Range (minPlatSize, maxPlatSize);
-			height = Mathf.RoundToInt(Random.Range (maxUp, maxDown)/2)*2;
+			height = Mathf.RoundToInt (Random.Range (maxUp, maxDown) / 2) * 2;
 			if (Mathf.Abs (heightAlt - height) >= 6) {
 				Spawn ();
 			} else {
 				heightAlt = height;
 				isHazard = false;
-				for (int i = 2; i <= size * 2; i = i + 2) {
-					switch(blockArt)
-					{
+				int sizedummy = size;
+				for (int i = 2; i <= sizedummy * 2; i = i + 2) {
+					switch (blockArt) {
 					case 0:
 						SpawnLine (redBrick, false, redBrick);
 						break;
@@ -94,13 +97,17 @@ public class Endlosmodus : MonoBehaviour {
 						break;
 					}
 				}
-			}
-			if (size >= 7 && Random.value > .5f) {
-				Vector3 crocvec = new Vector3 (lastX - 3, height + 3, 0);
+			
+				if (size >= 7 && Random.value > crocSpawnChance && crocSpawned == false) {
+					Vector3 crocvec = new Vector3 (lastX, height + 3, 0);
 					Instantiate (crocodile, crocvec, new Quaternion ());
-				print (crocvec);
+					crocSpawned = true;
+				} else if (height != lastHeight) {
+					crocSpawned = false;
 				}
-		} 
+				lastHeight = height;
+			}
+		}
 	}
 
 	void Delete()	{
