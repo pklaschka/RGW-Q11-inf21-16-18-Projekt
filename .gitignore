@@ -33,3 +33,7 @@ sysinfo.txt
 *.unitypackage
 Platformer_001/Library/ScriptMapper
 Platformer_001/Library/AssetImportState
+
+Platformer_001/Assets/RiderIntegration/
+
+Platformer_001/Assets/RiderIntegration\.meta
