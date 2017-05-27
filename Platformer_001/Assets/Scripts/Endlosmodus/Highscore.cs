@@ -16,8 +16,7 @@ public class Highscore : MonoBehaviour {
 			PlayerPrefs.SetString("maxEndlosweiteConfirmation", getHashed(length));
 		}
 		PlayerPrefs.SetInt ("Endlosweite", length);
-		print ("Score:" + PlayerPrefs.GetInt ("Endlosweite", 0));
-		print ("Highscore:" + PlayerPrefs.GetInt ("maxEndlosweite", 0));
+		PlayerPrefs.Save();
 	}
 
 	private string getHashed(int length) {
