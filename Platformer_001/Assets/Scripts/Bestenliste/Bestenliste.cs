@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Bestenliste : MonoBehaviour
 {
-    public static string serverAdress = "http://bestenliste:meineGemeineBestenliste@pi/inf21platformer";
+    public static string serverAdress = "http://bestenliste:meineGemeineBestenliste@inf21platformer.pabloklaschka.de";
 
     private static string best5Adress = "getBestFive.php";
     private static string rankAdress = "getRank.php?score=";
@@ -16,12 +16,15 @@ public class Bestenliste : MonoBehaviour
     public Text bestenliste;
     public Text ownScore;
     public InputField nameInput;
+    public Button btnSubmit;
 
     private int score;
     private string scoreConfirmation;
 
     private void Start()
     {
+        btnSubmit = GetComponent<Button>();
+        
         score = PlayerPrefs.GetInt("maxEndlosweite", 0);
         scoreConfirmation = PlayerPrefs.GetString("maxEndlosweiteConfirmation", "");
         
@@ -63,7 +66,38 @@ public class Bestenliste : MonoBehaviour
         else {
             bestenliste.text = "<b>Die Besten:</b>\n" + myWr.downloadHandler.text;
         }
-        
+    }
+
+    public void CheckSubmitable()
+    {
+        var confirmationString = "confirming" + score + "-1-75_13+" + (score * score) % (score * 3 / 2);
+
+        if (confirmationString == scoreConfirmation)
+        {
+            if (nameInput.text.Length > 0 && nameInput.text.Length <= 100)
+            {
+                if (score > PlayerPrefs.GetInt("maxSubmitedEndlosweite", 0))
+                {
+                    btnSubmit.GetComponentInChildren<Text>().text = "Veröffentlichen";
+                    btnSubmit.interactable = true;
+                }
+                else
+                {
+                    btnSubmit.interactable = false;
+                    btnSubmit.GetComponentInChildren<Text>().text = "Bereits veröffentlicht!";
+                }
+            }
+            else
+            {
+                btnSubmit.interactable = false;
+                btnSubmit.GetComponentInChildren<Text>().text = "Ungültiger Name!";
+            }
+        }
+        else
+        {
+            btnSubmit.interactable = false;
+            btnSubmit.GetComponentInChildren<Text>().text = "Cheater!";
+        }
     }
 
     public void OpenBestenliste()

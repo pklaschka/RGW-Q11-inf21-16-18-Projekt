@@ -577,6 +577,7 @@ MonoBehaviour:
   bestenliste: {fileID: 75309908}
   ownScore: {fileID: 104631839}
   nameInput: {fileID: 704186048}
+  btnSubmit: {fileID: 0}
 --- !u!114 &579019993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +964,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 971447814}
+        m_MethodName: CheckSubmitable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
@@ -1148,7 +1160,7 @@ Prefab:
     - target: {fileID: 224902029835350780, guid: f6748a010e46d4334a2b9717aa34b24d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -216.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224902029835350780, guid: f6748a010e46d4334a2b9717aa34b24d,
         type: 2}
@@ -1409,6 +1421,7 @@ MonoBehaviour:
   bestenliste: {fileID: 75309908}
   ownScore: {fileID: 104631839}
   nameInput: {fileID: 704186048}
+  btnSubmit: {fileID: 0}
 --- !u!1 &1091293677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +1887,7 @@ Prefab:
     - target: {fileID: 224902029835350780, guid: f6748a010e46d4334a2b9717aa34b24d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -141.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224902029835350780, guid: f6748a010e46d4334a2b9717aa34b24d,
         type: 2}

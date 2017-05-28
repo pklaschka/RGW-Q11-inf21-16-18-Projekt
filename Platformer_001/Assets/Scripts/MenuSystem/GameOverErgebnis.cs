@@ -8,11 +8,11 @@ public class GameOverErgebnis : MonoBehaviour {
 
 	private UnityEngine.UI.Text text;
 
-	void Start () {
+	public void Start () {
 		text = GetComponent<UnityEngine.UI.Text> ();
 
-		string aktuell = PlayerPrefs.GetInt ("Endlosweite", 0) + "";
-		string rekord  = PlayerPrefs.GetInt ("maxEndlosweite", 0) + "";
+		var aktuell = PlayerPrefs.GetInt ("Endlosweite", 0) + "";
+		var rekord  = PlayerPrefs.GetInt ("maxEndlosweite", 0) + "";
 
 		text.text = aktuellesErgebnisPrefix + " " + aktuell
 		+ "\n\r"
