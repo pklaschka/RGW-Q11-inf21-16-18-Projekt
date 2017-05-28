@@ -25,7 +25,7 @@ public class Bestenliste : MonoBehaviour
         score = PlayerPrefs.GetInt("maxEndlosweite", 0);
         scoreConfirmation = PlayerPrefs.GetString("maxEndlosweiteConfirmation", "");
         
-        SetupBestenliste();
+        StartCoroutine(SetupBestenliste());
 
         StartCoroutine(GetRank());
     }
@@ -38,9 +38,7 @@ public class Bestenliste : MonoBehaviour
 
     private IEnumerator GetRank()
     {
-        // TODO: Implementation of Rank
         var myWr = UnityWebRequest.Get(serverAdress + "/" + rankAdress + score);
-        //myWr.SetRequestHeader();
         yield return myWr.Send();
         
         if(myWr.isError) {
@@ -53,14 +51,19 @@ public class Bestenliste : MonoBehaviour
         }
     }
 
-    private void SetupBestenliste()
+    private IEnumerator SetupBestenliste()
     {
-        bestenliste.text = "<b>Die Besten:</b>\n" +
-                           "1. Karl (51683)\n" +
-                           "2. Karl (31555)\n" +
-                           "3. Karl (3013)\n" +
-                           "4. Karl (687)\n" +
-                           "5. Karl (311)\n";
+        bestenliste.text = "<b>Die Besten:</b>\n";
+        var myWr = UnityWebRequest.Get(serverAdress + "/" + best5Adress);
+        yield return myWr.Send();
+        
+        if(myWr.isError) {
+            Debug.LogError(myWr.error);
+        }
+        else {
+            bestenliste.text = "<b>Die Besten:</b>\n" + myWr.downloadHandler.text;
+        }
+        
     }
 
     public void OpenBestenliste()
