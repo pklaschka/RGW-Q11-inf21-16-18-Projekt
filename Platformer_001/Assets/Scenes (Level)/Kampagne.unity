@@ -385,7 +385,7 @@ MonoBehaviour:
   backgroundLeft: {fileID: 0}
   backgroundRight: {fileID: 0}
   levels:
-  - levelMap: {fileID: 2800000, guid: f67de0eda007c4f4b9b049627ebfc0e2, type: 3}
+  - levelMap: {fileID: 2800000, guid: 623b122dd7e67a04c9dfda05d73703de, type: 3}
     levelConfig: {fileID: 4900000, guid: 92244097c2d9bb34cb7386df95411f29, type: 3}
     backgroundLeft: {fileID: 653868773}
     backgroundRight: {fileID: 1768509499}
@@ -528,7 +528,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 2123089775}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: -2, z: 0}
 --- !u!1 &1506076118
 GameObject:
   m_ObjectHideFlags: 0
