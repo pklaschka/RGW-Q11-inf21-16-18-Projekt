@@ -128,7 +128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4179982095714822, guid: 46792cb4fbc88fd4ca842f45a10b5fca, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4179982095714822, guid: 46792cb4fbc88fd4ca842f45a10b5fca, type: 2}
       propertyPath: m_LocalScale.x
@@ -438,11 +438,18 @@ MonoBehaviour:
       rgba: 4278206976
     sprite: {fileID: 21300002, guid: a7b3f7c610a830d4c8f374b01179bb78, type: 3}
     prefab: {fileID: 1792102471104630, guid: 133c50c324aa2af47aa2c07b2315af10, type: 2}
+  - colour:
+      serializedVersion: 2
+      rgba: 4278190127
+    sprite: {fileID: 0}
+    prefab: {fileID: 1660809210920558, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
   defaultPrefabs:
   - type: 0
     prefab: {fileID: 1792102471104630, guid: c7876e361f641a843950a49414b9a42a, type: 2}
   - type: 1
     prefab: {fileID: 1967912431008734, guid: 4ab129c002285f14f9c17592c97c6f5e, type: 2}
+  - type: 2
+    prefab: {fileID: 1660809210920558, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
   backgroundImages:
   - {fileID: 21300000, guid: 39b71b37258efbc4fa8352f20d1ce00c, type: 3}
   tileSize: 2
@@ -623,7 +630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1708141812
 Prefab:
