@@ -25,6 +25,9 @@ extra Information über das Item angegeben werden. Dies hängt aber
 vom Item ab.
 z.B: 0xFF1000 ist ein Schwert, da Nummer 0x10 ein Schwert angibt.
 
+- 0x2F: Ein Gegner, AA gibt die Art des Gegners an.
+z.B: 0x2F0000 ist ein Schleim.
+
 Tile Arten:
 =========
 0x00 = Luft
@@ -38,6 +41,11 @@ Item Arten:
 0x00 = Nichts
 0x10 = Schwert
 0x20 = Zauberstab
+
+Gegner Arten:
+==========
+0x00 = Schleim
+0x10 = Krokodil
 
 ACHTUNG !!!!!!!:
 ================
