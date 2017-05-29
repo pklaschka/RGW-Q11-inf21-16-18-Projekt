@@ -385,7 +385,7 @@ MonoBehaviour:
   backgroundLeft: {fileID: 0}
   backgroundRight: {fileID: 0}
   levels:
-  - levelMap: {fileID: 2800000, guid: f67de0eda007c4f4b9b049627ebfc0e2, type: 3}
+  - levelMap: {fileID: 2800000, guid: 623b122dd7e67a04c9dfda05d73703de, type: 3}
     levelConfig: {fileID: 4900000, guid: 92244097c2d9bb34cb7386df95411f29, type: 3}
     backgroundLeft: {fileID: 653868773}
     backgroundRight: {fileID: 1768509499}
