@@ -34,6 +34,7 @@ public class Endlosmodus : MonoBehaviour {
 	void Start () {
 		spawnedTiles = new List<GameObject>();
 		spawnedTilesGround = new List<GameObject> ();
+		spawnedTilesGround.Add(Instantiate(Instantiate (ground, new Vector3 (-100,-100 , 0), new Quaternion ())));
 		for (int i = 1; i <= 20; i = i + 2) {
 			lastX = i - 10;
 			GameObject tile = Instantiate (grass, new Vector3 (i - 10, 0, 0), new Quaternion ());
