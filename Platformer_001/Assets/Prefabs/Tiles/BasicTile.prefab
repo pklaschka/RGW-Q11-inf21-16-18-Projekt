@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1792102471104630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.205129, y: 11.969703, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,13 +53,13 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 47c1bdd6919415b4db67b378a9adaa6b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: -0.5, y: -0.5}
+  m_Offset: {x: -1, y: 0}
   m_Points:
-  - {x: 0, y: 0}
-  - {x: 1, y: 0}
-  - {x: 1, y: 1}
+  - {x: 0, y: -1}
+  - {x: 2, y: -1}
+  - {x: 2, y: 1}
   - {x: 0, y: 1}
-  - {x: 0, y: 0}
+  - {x: 0, y: -1}
 --- !u!212 &212374159688009474
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -107,7 +107,7 @@ PlatformEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RotationalOffset: 0
-  m_UseOneWay: 1
+  m_UseOneWay: 0
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
   m_UseSideFriction: 0
