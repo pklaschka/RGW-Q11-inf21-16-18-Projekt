@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -35,8 +33,39 @@ public class Bestenliste : MonoBehaviour
 
     public void Submit()
     {
-        // TODO: Implement submitting score
+        btnSubmit.interactable = false;
+        btnSubmit.GetComponentInChildren<Text>().text = "...";
+        StartCoroutine(SubmitNow());
+    }
+
+    public IEnumerator SubmitNow()
+    {
+        btnSubmit.interactable = false;
+        btnSubmit.GetComponentInChildren<Text>().text = "...";
+        
         print("Submitting score: " + score + " (" + nameInput.text + ")");
+        var form = new WWWForm();
+        form.AddField("name", nameInput.text);
+        form.AddField("score", score);
+        form.AddField("scoreConfirmationString", scoreConfirmation);
+        var myWr = UnityWebRequest.Post(serverAdress + "/" + submitAdress, form);
+
+        yield return myWr.Send();
+        
+        Debug.Log("Submiting.");
+
+        if (myWr.isError)
+        {
+            Debug.LogError("Submit has failed.");
+        }
+        else
+        {
+            print(myWr.responseCode);
+            print(myWr.downloadHandler.text);
+            PlayerPrefs.SetInt("maxSubmitedEndlosweite", score);
+            CheckSubmitable();
+            StartCoroutine(SetupBestenliste());
+        }
     }
 
     private IEnumerator GetRank()
@@ -56,7 +85,7 @@ public class Bestenliste : MonoBehaviour
 
     private IEnumerator SetupBestenliste()
     {
-        bestenliste.text = "<b>Die Besten:</b>\n";
+        bestenliste.text = "<b>Die Besten:</b>\nWird geladen.";
         var myWr = UnityWebRequest.Get(serverAdress + "/" + best5Adress);
         yield return myWr.Send();
         
@@ -64,7 +93,7 @@ public class Bestenliste : MonoBehaviour
             Debug.LogError(myWr.error);
         }
         else {
-            bestenliste.text = "<b>Die Besten:</b>\n" + myWr.downloadHandler.text;
+            bestenliste.text = "<b>Die Besten:</b>" + myWr.downloadHandler.text;
         }
     }
 

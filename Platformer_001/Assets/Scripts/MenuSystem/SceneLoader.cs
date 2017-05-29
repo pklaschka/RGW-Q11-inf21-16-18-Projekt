@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour {
 	private bool sceneLoading;
 	AsyncOperation async;
 
-	void Start() {
+	public void Start() {
 		sceneLoading = false;
 	}
 
@@ -33,19 +33,22 @@ public class SceneLoader : MonoBehaviour {
 		SceneManager.LoadScene("Kampagne");
 	}
 
-	IEnumerator StartSceneLoad() {
+	private IEnumerator StartSceneLoad() {
 		async = SceneManager.LoadSceneAsync(NameSceneToLoad);
 		if( null != async )
 			async.allowSceneActivation = false;
 		yield return async;
 	}
 
-	void Update() {
-		if (sceneLoading) {
-			ProgressBar.value = async.progress/0.9f;
-			if (async.progress >= 0.9f)
-				async.allowSceneActivation = true;
-		}
+	public void Update() {
+		if (!sceneLoading) return;
+		ProgressBar.value = async.progress/0.9f;
+		if (async.progress >= 0.9f)
+			async.allowSceneActivation = true;
+	}
 
+	public void CloseGame()
+	{
+		Application.Quit();
 	}
 }
