@@ -85,7 +85,7 @@ public class Bestenliste : MonoBehaviour
 
     private IEnumerator SetupBestenliste()
     {
-        bestenliste.text = "<b>Die Besten:</b>\n";
+        bestenliste.text = "<b>Die Besten:</b>\nWird geladen.";
         var myWr = UnityWebRequest.Get(serverAdress + "/" + best5Adress);
         yield return myWr.Send();
         
@@ -93,7 +93,7 @@ public class Bestenliste : MonoBehaviour
             Debug.LogError(myWr.error);
         }
         else {
-            bestenliste.text = "<b>Die Besten:</b>\n" + myWr.downloadHandler.text;
+            bestenliste.text = "<b>Die Besten:</b>" + myWr.downloadHandler.text;
         }
     }
 
