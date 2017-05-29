@@ -448,6 +448,8 @@ MonoBehaviour:
     prefab: {fileID: 1792102471104630, guid: c7876e361f641a843950a49414b9a42a, type: 2}
   - type: 1
     prefab: {fileID: 1967912431008734, guid: 4ab129c002285f14f9c17592c97c6f5e, type: 2}
+  - type: 2
+    prefab: {fileID: 1660809210920558, guid: 69447e927c1931b44b083bcc73254aff, type: 2}
   backgroundImages:
   - {fileID: 21300000, guid: 39b71b37258efbc4fa8352f20d1ce00c, type: 3}
   tileSize: 2
