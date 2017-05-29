@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -33,17 +31,28 @@ public class Bestenliste : MonoBehaviour
         StartCoroutine(GetRank());
     }
 
-    public IEnumerator Submit()
+    public void Submit()
     {
-        // TODO: Implement submitting score
+        btnSubmit.interactable = false;
+        btnSubmit.GetComponentInChildren<Text>().text = "...";
+        StartCoroutine(SubmitNow());
+    }
+
+    public IEnumerator SubmitNow()
+    {
+        btnSubmit.interactable = false;
+        btnSubmit.GetComponentInChildren<Text>().text = "...";
+        
         print("Submitting score: " + score + " (" + nameInput.text + ")");
-        WWWForm form = new WWWForm();
+        var form = new WWWForm();
         form.AddField("name", nameInput.text);
         form.AddField("score", score);
         form.AddField("scoreConfirmationString", scoreConfirmation);
         var myWr = UnityWebRequest.Post(serverAdress + "/" + submitAdress, form);
 
         yield return myWr.Send();
+        
+        Debug.Log("Submiting.");
 
         if (myWr.isError)
         {
@@ -51,8 +60,11 @@ public class Bestenliste : MonoBehaviour
         }
         else
         {
+            print(myWr.responseCode);
+            print(myWr.downloadHandler.text);
             PlayerPrefs.SetInt("maxSubmitedEndlosweite", score);
             CheckSubmitable();
+            StartCoroutine(SetupBestenliste());
         }
     }
 
