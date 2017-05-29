@@ -33,10 +33,27 @@ public class Bestenliste : MonoBehaviour
         StartCoroutine(GetRank());
     }
 
-    public void Submit()
+    public IEnumerator Submit()
     {
         // TODO: Implement submitting score
         print("Submitting score: " + score + " (" + nameInput.text + ")");
+        WWWForm form = new WWWForm();
+        form.AddField("name", nameInput.text);
+        form.AddField("score", score);
+        form.AddField("scoreConfirmationString", scoreConfirmation);
+        var myWr = UnityWebRequest.Post(serverAdress + "/" + submitAdress, form);
+
+        yield return myWr.Send();
+
+        if (myWr.isError)
+        {
+            Debug.LogError("Submit has failed.");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("maxSubmitedEndlosweite", score);
+            CheckSubmitable();
+        }
     }
 
     private IEnumerator GetRank()
