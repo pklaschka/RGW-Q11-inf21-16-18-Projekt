@@ -12,16 +12,11 @@ public class WalkerTypeKI : MonoBehaviour {
 	int d = -1;
 	bool rotating;
 
-
-	// Use this for initialization
 	void Start () {
 		walker = GetComponent<Rigidbody2D>();
-		//print("got rb2D");
 		walkerCollider = GetComponent<BoxCollider2D>();
-		//print ("got Collider2D");
 	}
-
-	// Update is called once per frame
+		
 	void Update () {
 		if (d == 1) {
 			var rechts = Physics2D.Raycast (gameObject.transform.position, new Vector2(1.0f, -0.1f), 4.0f);
@@ -48,7 +43,6 @@ public class WalkerTypeKI : MonoBehaviour {
 
 	public void Walk(int direction){
 		walker.velocity = new Vector2 ((direction * speed), walker.velocity.y);
-		//rotating = false;
 		float yRotation = (direction == 1f) ? 0 : 180f;
 		transform.eulerAngles = new Vector3 (0, yRotation);
 		rotating = true;
